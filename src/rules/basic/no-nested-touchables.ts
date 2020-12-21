@@ -33,7 +33,7 @@ export const rule: Rule.RuleModule = {
             elementType(child) === BUTTON,
         )
 
-        if (!!clickableChild) {
+        if (clickableChild) {
           context.report({
             node,
             message:
