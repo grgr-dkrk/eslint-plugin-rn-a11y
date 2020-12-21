@@ -14,9 +14,9 @@
     "test": "jest",
     "test:coverage": "jest --coverage tests/**/*",
     "lint": "eslint ./src",
-    "typeCheck": "tsc --noEmit",
+    "typeCheck": "tsc -p . --noEmit",
     "format": "prettier --write ./src",
-    "ci": "yarn typeCheck && yarn lint"
+    "ci": "yarn typeCheck && yarn lint && yarn test"
   },
   "dependencies": {
     "jsx-ast-utils": "^3.2.0"

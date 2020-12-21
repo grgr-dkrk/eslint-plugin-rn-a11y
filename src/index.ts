@@ -33,7 +33,7 @@ const iOSRules = {
   [`${PLUGIN_NAME}/no-accessibilityLabel-for-testing`]: 'error',
 }
 
-const experimentalStrictRules = {
+const experimentalRules = {
   [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
 }
 
@@ -65,9 +65,9 @@ module.exports = {
       ...defaultConfig,
       rules: { ...basicRules, ...androidRules, ...iOSRules },
     },
-    experimentalStrict: {
+    experimental: {
       ...defaultConfig,
-      rules: experimentalStrictRules,
+      rules: experimentalRules,
     },
   },
 }

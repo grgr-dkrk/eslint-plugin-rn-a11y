@@ -1,4 +1,4 @@
-# eslint-plugin-rn-native
+# eslint-plugin-rn-a11y
 
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -7,15 +7,16 @@ Some rules have been ported from [eslint-plugin-react-native-a11y](https://githu
 
 ## Install
 
-```
-yarn add -D eslint-plugin-rn-a11y
-```
+TBD
 
 ## Configuration
 
-### apply config
+- `plugin:rn-a11y/basic`: Common basic rules of iOS and Android.
+- `plugin:rn-a11y/iOS`: iOS-specific rules, includes `basic`.
+- `plugin:rn-a11y/android`: Android-specific rules, includes `basic`.
+- `plugin:rn-a11y/all`: all rules.
 
-`.eslintrc.js` to below:
+For example:
 
 ```javascript
 module.exports = {
@@ -25,12 +26,12 @@ module.exports = {
 }
 ```
 
-## Supported Rules & Presets
+## Supported Rules
 
 ### Basic
 
-- has-accessibility-hint: ported from `eslint-plugin-react-native-a11y`.
-- [has-valid-accessibility-actions](): ported from `eslint-plugin-react-native-a11y`.
+- has-accessibility-hint: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
+- has-valid-accessibility-actions: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 - [no-deprecated-props](): Some props are deprecated, do not use those (ex: `accessibilityComponentType` and `accessibilityTraits`.)
 
 ### Android
@@ -46,9 +47,11 @@ TBD
 
 TBD
 
-### Strict(`experimentalStrict` only.)
+### Experimental
 
-- [image-has-accessible](): `<Image />` should has `accessible` and `accessibilityLabel` props.
+`plugin:rn-a11y/experimental` only.
+
+- [image-has-accessible](): `<Image />` should has `accessible` and `accessibilityLabel` props. (iOS)
 
 ## Support
 
@@ -61,7 +64,7 @@ On React (not React Native), please use [eslint-plugin-jsx-a11y](https://github.
 
 TBD
 
-## Contributing
+## Contribution
 
 Contribution is welcome!  
 Please see [Contribution Guide](CONTRIBUTING.md).
