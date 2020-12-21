@@ -3,8 +3,22 @@ import {
   hasValidAccessibilityActions,
   noDeprecatedProps,
 } from './rules/basic'
+import {
+  accessibleImageHasLabel,
+  imageHasAccessible,
+  noAccessibilityLabelForTesting,
+} from './rules/ios'
 
 const PLUGIN_NAME = 'rn-a11y'
+
+const defaultConfig = {
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  plugins: [PLUGIN_NAME],
+}
 
 const basicRules = {
   [`${PLUGIN_NAME}/has-accessibility-hint`]: 'error',
@@ -12,31 +26,48 @@ const basicRules = {
   [`${PLUGIN_NAME}/no-deprecated-props`]: 'error',
 }
 
+const androidRules = {}
+
 const iOSRules = {
-  [`${PLUGIN_NAME}/has-accessibility-hint`]: 'error',
-  [`${PLUGIN_NAME}/has-valid-accessibility-actions`]: 'error',
-  [`${PLUGIN_NAME}/no-deprecated-props`]: 'error',
+  [`${PLUGIN_NAME}/accessible-image-has-label`]: 'error',
+  [`${PLUGIN_NAME}/no-accessibilityLabel-for-testing`]: 'error',
+}
+
+const experimentalStrictRules = {
+  [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
 }
 
 export const rules = {
   'has-accessibility-hint': hasAccessibilityHint,
   'has-valid-accessibility-actions': hasValidAccessibilityActions,
   'no-deprecated-props': noDeprecatedProps,
+  'accessible-image-has-label': accessibleImageHasLabel,
+  'no-accessibilityLabel-for-testing': noAccessibilityLabelForTesting,
+  'image-has-accessible': imageHasAccessible,
 }
 
-export const configs = {
-  recommended: {
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
+module.exports = {
+  rules,
+  configs: {
+    basic: {
+      ...defaultConfig,
+      rules: basicRules,
     },
-    plugins: [PLUGIN_NAME],
-    rules: {},
-    configs: {
-      basic: {
-        rules: basicRules,
-      },
+    androidRules: {
+      ...defaultConfig,
+      rules: androidRules,
+    },
+    iOS: {
+      ...defaultConfig,
+      rules: iOSRules,
+    },
+    all: {
+      ...defaultConfig,
+      rules: { ...basicRules, ...androidRules, ...iOSRules },
+    },
+    experimentalStrict: {
+      ...defaultConfig,
+      rules: experimentalStrictRules,
     },
   },
 }

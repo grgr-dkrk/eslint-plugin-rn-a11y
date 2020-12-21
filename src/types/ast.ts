@@ -16,7 +16,7 @@ export type Declaration = {
   // extends Node
 }
 
-export type Expression = {}
+export type Expression = Record<string, unknown>
 
 export type Function = {
   // TODO: Can't properly override base types yet.
@@ -45,11 +45,11 @@ export type Node = {
   trailingComments?: Array<Comment>
 }
 
-export type Pattern = {}
+export type Pattern = Record<string, unknown>
 
-export type Statement = {}
+export type Statement = Record<string, unknown>
 
-export type Type = {}
+export type Type = Record<string, unknown>
 
 // Concrete Types. Nothing can extend these.
 

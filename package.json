@@ -9,11 +9,11 @@
     "url": "https://github.com/grgr-dkrk"
   },
   "scripts": {
-    "build": "tsc -p . --outDir dist",
+    "build": "tsc -p ./tsconfig.build.json --outDir dist",
     "clean": "rimraf dist",
     "test": "jest",
     "test:coverage": "jest --coverage tests/**/*",
-    "lint": "eslint",
+    "lint": "eslint ./src",
     "typeCheck": "tsc --noEmit",
     "format": "prettier --write ./src",
     "ci": "yarn typeCheck && yarn lint"

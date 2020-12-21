@@ -62,12 +62,16 @@ declare module 'jsx-ast-utils' {
   /**
    * Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object. This function should return the most closely associated value with the intention of the JSX.
    */
-  export function getPropValue(prop: Object): string[] | number[] | boolean[]
+  export function getPropValue(
+    prop: Record<string, unknown>,
+  ): string[] | number[] | boolean[]
 
   /**
    * Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object. This function should return a value only if we can extract a literal value from its attribute (i.e. values that have generic types in JavaScript - strings, numbers, booleans, etc.)
    */
-  export function getLiteralPropValue(prop: Object): TODO_JSX_NODE
+  export function getLiteralPropValue(
+    prop: Record<string, unknown>,
+  ): TODO_JSX_NODE
 
   /**
    * Returns the name associated with a JSXAttribute. For example, given `<div foo="bar" />` and the JSXAttribute for `foo`, this will return the string `"foo"`.
