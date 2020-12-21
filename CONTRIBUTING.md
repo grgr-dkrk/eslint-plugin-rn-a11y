@@ -12,9 +12,7 @@ TBD
 
 ### Install
 
-1. Fork this project.
-2. Clone forked project and `yarn` on root.
-3. `yarn test` or `yarn build`.
+TBD
 
 ### Add Rules
 
