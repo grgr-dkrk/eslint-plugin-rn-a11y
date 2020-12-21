@@ -10,7 +10,11 @@ import { JSXOpeningElement } from '../../types'
 
 export const rule: Rule.RuleModule = {
   meta: {
-    docs: {},
+    type: 'problem',
+    docs: {
+      description:
+        'Enforce accessibilityHint is used in conjunction with accessibilityLabel.',
+    },
     schema: [],
   },
 

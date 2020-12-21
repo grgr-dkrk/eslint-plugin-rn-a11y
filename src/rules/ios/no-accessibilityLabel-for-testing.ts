@@ -5,7 +5,11 @@ import { JSXOpeningElement } from '../../types'
 
 export const rule: Rule.RuleModule = {
   meta: {
-    docs: {},
+    type: 'suggestion',
+    docs: {
+      description:
+        'Disallow set `AccessibilityLabel` and `testID` both without `Accessible`.',
+    },
     schema: [],
   },
 

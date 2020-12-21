@@ -1,14 +1,23 @@
 import { Rule } from 'eslint'
-import { elementType, hasProp } from 'jsx-ast-utils'
+import { hasProp } from 'jsx-ast-utils'
 import { ACCESSIBLE, ACCESSIBILITY_LABEL } from '../../constants'
 import { IMAGE } from '../../constants'
 import { JSXOpeningElement } from '../../types'
+import { isTargetElement } from '../../utils'
 
 export const rule: Rule.RuleModule = {
+  meta: {
+    type: 'problem',
+    docs: {
+      description:
+        'Enforce `Image` must have `accessibilityLabel` prop if it has `accessible`. ',
+    },
+    schema: [],
+  },
   create: (context) => ({
     JSXOpeningElement: (node: JSXOpeningElement) => {
       if (
-        elementType(node) === IMAGE &&
+        isTargetElement(node, context.options, [IMAGE]) &&
         hasProp(node.attributes, ACCESSIBLE) &&
         !hasProp(node.attributes, ACCESSIBILITY_LABEL)
       ) {
