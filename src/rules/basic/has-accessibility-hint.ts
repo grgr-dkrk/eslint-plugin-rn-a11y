@@ -5,6 +5,7 @@
 
 import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
+import { ACCESSIBILITY_HINT, ACCESSIBILITY_LABEL } from '../../constants'
 import { JSXOpeningElement } from '../../types'
 
 export const rule: Rule.RuleModule = {
@@ -17,8 +18,8 @@ export const rule: Rule.RuleModule = {
     // @ts-ignore
     JSXOpeningElement: (node: JSXOpeningElement) => {
       if (
-        hasProp(node.attributes, 'accessibilityLabel') &&
-        !hasProp(node.attributes, 'accessibilityHint')
+        hasProp(node.attributes, ACCESSIBILITY_LABEL) &&
+        !hasProp(node.attributes, ACCESSIBILITY_HINT)
       ) {
         context.report({
           // @ts-ignore

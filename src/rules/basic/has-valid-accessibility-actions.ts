@@ -5,6 +5,16 @@
 
 import { Rule } from 'eslint'
 import { getProp, getPropValue, hasEveryProp, hasProp } from 'jsx-ast-utils'
+import {
+  ACCESSIBILITY_ACTIONS,
+  ACTIVATE,
+  DECREMENT,
+  ESCAPE,
+  INCREMENT,
+  LONGPRESS,
+  MAGIC_TAP,
+  ON_ACCESSIBILITY_ACTION,
+} from '../../constants'
 import { JSXOpeningElement } from '../../types'
 
 // ----------------------------------------------------------------------------
@@ -12,12 +22,12 @@ import { JSXOpeningElement } from '../../types'
 // ----------------------------------------------------------------------------
 
 const standardActions = [
-  'magicTap', // iOS only
-  'escape', // iOS only
-  'activate',
-  'increment',
-  'decrement',
-  'longpress', // Android only
+  MAGIC_TAP, // iOS only
+  ESCAPE, // iOS only
+  ACTIVATE,
+  INCREMENT,
+  DECREMENT,
+  LONGPRESS, // Android only
 ]
 
 export const rule: Rule.RuleModule = {
@@ -38,11 +48,11 @@ export const rule: Rule.RuleModule = {
 
       if (
         hasEveryProp(node.attributes, [
-          'accessibilityActions',
-          'onAccessibilityAction',
+          ACCESSIBILITY_ACTIONS,
+          ON_ACCESSIBILITY_ACTION,
         ])
       ) {
-        const handlerProp = getProp(node.attributes, 'onAccessibilityAction')
+        const handlerProp = getProp(node.attributes, ON_ACCESSIBILITY_ACTION)
         const handlerPropType = handlerProp.value.expression.type
         // CallExpressions are always assumed valid
         if (handlerPropType !== 'CallExpression') {
@@ -54,7 +64,7 @@ export const rule: Rule.RuleModule = {
           }
         }
 
-        const actionsProp = getProp(node.attributes, 'accessibilityActions')
+        const actionsProp = getProp(node.attributes, ACCESSIBILITY_ACTIONS)
         const actionsPropType = actionsProp.value.expression.type
         // CallExpressions are always assumed valid
         if (actionsPropType !== 'CallExpression') {
@@ -87,11 +97,11 @@ export const rule: Rule.RuleModule = {
           }
         }
       } else {
-        if (hasProp(node.attributes, 'accessibilityActions')) {
+        if (hasProp(node.attributes, ACCESSIBILITY_ACTIONS)) {
           createErrorMessage(
             'accessibilityActions: has accessibilityActions but onAccessibilityAction is not a function',
           )
-        } else if (hasProp(node.attributes, 'onAccessibilityAction')) {
+        } else if (hasProp(node.attributes, ON_ACCESSIBILITY_ACTION)) {
           createErrorMessage(
             'accessibilityActions: has onAccessibilityAction function but no accessibilityActions Array',
           )

@@ -36,7 +36,7 @@ export const rule: Rule.RuleModule = {
           node,
           message: createErrorMessage(
             ACCESSIBILITY_TRAITS,
-            'accessibilityState',
+            ACCESSIBILITY_STATE,
           ),
         })
       }

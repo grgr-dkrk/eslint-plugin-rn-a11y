@@ -57,7 +57,7 @@ declare module 'jsx-ast-utils' {
   /**
    * Returns the tagName associated with a JSXElement.
    */
-  export function elementType(node: TODO_JSX_NODE): Record<string, any>
+  export function elementType(node: TODO_JSX_NODE): string
 
   /**
    * Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object. This function should return the most closely associated value with the intention of the JSX.
