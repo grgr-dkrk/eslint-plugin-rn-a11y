@@ -39,7 +39,7 @@ module.exports = {
 - has-valid-accessibility-actions: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 - no-nested-touchables: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 - [no-deprecated-props](): Disallow using deprecated props. (ex: `accessibilityComponentType` and `accessibilityTraits`.)
-- [no-accessibilityLabel-for-testing](): Disallow set `AccessibilityLabel` and `testID` both without `Accessible`.
+- [no-accessibilityLabel-for-testing](): Disallow set `accessibilityLabel` and `testID` both without `accessible`.
 
 ### Android
 
@@ -51,13 +51,13 @@ TBD
 
 ### WCAG
 
-- [touchable-has-alt](): Enforce `Touchable` components must have `accessible` and `accessibilityLabel` prop any children or self`.
+- [touchable-has-alt](): Enforce `Touchable` components must have both `accessible` and `accessibilityLabel` prop any children or self`.
 
 ### Experimental
 
 `plugin:rn-a11y/experimental` only.
 
-- [image-has-accessible](): `<Image />` should has `accessible` and `accessibilityLabel` props.
+- [image-has-accessible](): `<Image />` must have both `accessible` and `accessibilityLabel` props.
 
 ## Support
 
