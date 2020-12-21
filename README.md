@@ -11,14 +11,18 @@ TBD
 
 ## Configuration
 
+There are several presets. It can be set from `extends`.
+
 - `plugin:rn-a11y/basic`: Common basic rules of iOS and Android.
 - `plugin:rn-a11y/iOS`: iOS-specific rules, includes `basic`.
 - `plugin:rn-a11y/android`: Android-specific rules, includes `basic`.
-- `plugin:rn-a11y/all`: all rules.
+- `plugin:rn-a11y/all`: Includes `basic`, `iOS`, and `android`.
 
 For example:
 
 ```javascript
+// eslintrc.js
+
 module.exports = {
   /* ... */
   extends: ['plugin:rn-a11y/all'],
@@ -32,9 +36,9 @@ module.exports = {
 
 - has-accessibility-hint: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 - has-valid-accessibility-actions: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
+- [no-nested-touchables](): ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 - [no-deprecated-props](): Disallow using deprecated props. (ex: `accessibilityComponentType` and `accessibilityTraits`.)
 - [no-accessibilityLabel-for-testing](): Disallow set `AccessibilityLabel` and `testID` both without `Accessible`.
-- [no-nested-touchables](): ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 
 ### Android
 
@@ -67,6 +71,7 @@ If you want to include custom components in rules, set the `customComponents` pr
 
 ```javascript
 // eslintrc.js
+
 rules: {
   'rn-a11y/no-nested-touchables': [
     'error',
