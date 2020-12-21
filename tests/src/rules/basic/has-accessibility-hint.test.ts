@@ -12,22 +12,15 @@ ruleTester.run('has-accessibility-hint', hasAccessibilityHint, {
       code: `<TouchableOpacity />`,
     },
     {
-      code: `<TouchableOpacity
-                accessibilityHint="Navigates to the previous screen"
-              />`,
+      code: `<TouchableOpacity accessibilityHint="Navigates to the previous screen" />`,
     },
     {
-      code: `<TouchableOpacity
-                accessibilityLabel="Go back"
-                accessibilityHint="Navigates to the previous screen"
-              />`,
+      code: `<TouchableOpacity accessibilityLabel="Go back" accessibilityHint="Navigates to the previous screen" />`,
     },
   ],
   invalid: [
     {
-      code: `<TouchableOpacity
-                accessibilityLabel="Go back"
-              />`,
+      code: `<TouchableOpacity accessibilityLabel="Go back" />`,
       errors: [ERROR_MESSAGE],
     },
   ],

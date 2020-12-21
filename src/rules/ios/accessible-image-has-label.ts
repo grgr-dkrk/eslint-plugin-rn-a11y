@@ -6,7 +6,6 @@ import { JSXOpeningElement } from '../../types'
 
 export const rule: Rule.RuleModule = {
   create: (context) => ({
-    // @ts-ignore
     JSXOpeningElement: (node: JSXOpeningElement) => {
       if (
         elementType(node) === IMAGE &&
@@ -14,7 +13,6 @@ export const rule: Rule.RuleModule = {
         !hasProp(node.attributes, ACCESSIBILITY_LABEL)
       ) {
         context.report({
-          // @ts-ignore
           node,
           message:
             'If an Image has `accessible` props, the Image should has `accessibilityLabel` props.',

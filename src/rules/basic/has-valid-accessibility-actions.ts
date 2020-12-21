@@ -37,11 +37,9 @@ export const rule: Rule.RuleModule = {
   },
 
   create: (context) => ({
-    // @ts-ignore
     JSXOpeningElement: (node: JSXOpeningElement) => {
       const createErrorMessage = (message: string): void =>
         context.report({
-          // @ts-ignore
           node,
           message,
         })

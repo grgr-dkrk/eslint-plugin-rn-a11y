@@ -860,12 +860,8 @@ export type JSXNamespacedName = {
   namespace: JSXIdentifier
 }
 
-export type JSXOpeningElement = {
-  // extends Node
-  attributes: Node[]
-  name: Node[]
-  selfClosing: boolean
-}
+// TODO: FIX any
+export type JSXOpeningElement = any
 
 export type JSXSpreadAttribute = {
   // extends Node

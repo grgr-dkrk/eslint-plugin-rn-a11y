@@ -18,11 +18,9 @@ const createErrorMessage = (prop: TargetPropName, insteadProps: NewPropName) =>
 
 export const rule: Rule.RuleModule = {
   create: (context) => ({
-    // @ts-ignore
     JSXOpeningElement: (node: JSXOpeningElement) => {
       if (hasProp(node.attributes, ACCESSIBILITY_COMPONENT_TYPE)) {
         context.report({
-          // @ts-ignore
           node,
           message: createErrorMessage(
             ACCESSIBILITY_COMPONENT_TYPE,
@@ -32,7 +30,6 @@ export const rule: Rule.RuleModule = {
       }
       if (hasProp(node.attributes, ACCESSIBILITY_TRAITS)) {
         context.report({
-          // @ts-ignore
           node,
           message: createErrorMessage(
             ACCESSIBILITY_TRAITS,
