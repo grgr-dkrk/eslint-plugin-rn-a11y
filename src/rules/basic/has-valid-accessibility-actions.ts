@@ -1,6 +1,6 @@
 /**
  * Original: JP Driver
- * See: https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/blob/master/src/rules/has-accessibility-hint.js
+ * See: https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/blob/master/src/rules/has-valid-accessibility-actions.js
  */
 
 import { Rule } from 'eslint'
@@ -32,7 +32,11 @@ const standardActions = [
 
 export const rule: Rule.RuleModule = {
   meta: {
-    docs: {},
+    type: 'problem',
+    docs: {
+      description:
+        'Enforce both accessibilityActions and onAccessibilityAction props are valid.',
+    },
     schema: [],
   },
 

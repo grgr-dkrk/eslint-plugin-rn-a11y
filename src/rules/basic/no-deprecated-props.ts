@@ -17,6 +17,13 @@ const createErrorMessage = (prop: TargetPropName, insteadProps: NewPropName) =>
   `\`${prop}\` is deprecated. Use \`${insteadProps}\` instead.`
 
 export const rule: Rule.RuleModule = {
+  meta: {
+    type: 'problem',
+    docs: {
+      description: 'disallow using deprecated props.',
+    },
+    schema: [],
+  },
   create: (context) => ({
     JSXOpeningElement: (node: JSXOpeningElement) => {
       if (hasProp(node.attributes, ACCESSIBILITY_COMPONENT_TYPE)) {
