@@ -1,3 +1,6 @@
+export const VIEW = 'View' as const
+export const TEXT = 'Text' as const
+
 // Interactions
 export const BUTTON = 'Button' as const
 export const TEXT_INPUT = 'TextInput' as const

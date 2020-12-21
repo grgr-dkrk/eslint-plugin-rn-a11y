@@ -9,6 +9,7 @@ import {
   imageHasAccessible,
   noAccessibilityLabelForTesting,
 } from './rules/ios'
+import { touchableHasAlt } from './rules/wcag20'
 
 const PLUGIN_NAME = 'rn-a11y'
 
@@ -35,6 +36,10 @@ const iOSRules = {
   [`${PLUGIN_NAME}/accessible-image-has-label`]: 'error',
 }
 
+const wcagRules = {
+  [`${PLUGIN_NAME}/touchable-has-alt`]: 'error',
+}
+
 const experimentalRules = {
   [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
 }
@@ -47,6 +52,7 @@ export const rules = {
   'no-accessibilityLabel-for-testing': noAccessibilityLabelForTesting,
   'image-has-accessible': imageHasAccessible,
   'no-nested-touchables': noNestedTouchables,
+  'touchable-has-alt': touchableHasAlt,
 }
 
 module.exports = {
@@ -58,15 +64,19 @@ module.exports = {
     },
     androidRules: {
       ...defaultConfig,
-      rules: androidRules,
+      rules: { ...basicRules, ...androidRules },
     },
     iOS: {
       ...defaultConfig,
-      rules: iOSRules,
+      rules: { ...basicRules, ...iOSRules },
+    },
+    wcag: {
+      ...defaultConfig,
+      rules: { ...basicRules, ...wcagRules },
     },
     all: {
       ...defaultConfig,
-      rules: { ...basicRules, ...androidRules, ...iOSRules },
+      rules: { ...basicRules, ...androidRules, ...iOSRules, ...wcagRules },
     },
     experimental: {
       ...defaultConfig,

@@ -16,6 +16,7 @@ There are several presets. It can be set from `extends`.
 - `plugin:rn-a11y/basic`: Common basic rules of iOS and Android.
 - `plugin:rn-a11y/iOS`: iOS-specific rules, includes `basic`.
 - `plugin:rn-a11y/android`: Android-specific rules, includes `basic`.
+- `plugin:rn-a11y/wcag`: WCAG2.x rules, includes `basic`.
 - `plugin:rn-a11y/all`: Includes `basic`, `iOS`, and `android`.
 
 For example:
@@ -50,13 +51,13 @@ TBD
 
 ### WCAG
 
-TBD
+- [touchable-has-alt](): Enforce `Touchable` components must have `accessible` and `accessibilityLabel` prop any children or self`.
 
 ### Experimental
 
 `plugin:rn-a11y/experimental` only.
 
-- [image-has-accessible](): `<Image />` should has `accessible` and `accessibilityLabel` props. (iOS)
+- [image-has-accessible](): `<Image />` should has `accessible` and `accessibilityLabel` props.
 
 ## Support
 
