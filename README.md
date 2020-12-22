@@ -57,7 +57,8 @@ TBD
 
 `plugin:rn-a11y/experimental` only.
 
-- [image-has-accessible](): `<Image />` should has `accessible` and `accessibilityLabel` props.
+- [image-has-accessible](): `<Image />` must have `accessible` and `accessibilityLabel` props.
+- [has-enough-button-size](): Enforce `Touchable` components must have enough size.
 
 ## Support
 

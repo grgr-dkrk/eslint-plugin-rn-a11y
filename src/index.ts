@@ -1,5 +1,6 @@
 import {
   hasAccessibilityHint,
+  hasEnoughButtonSize,
   hasValidAccessibilityActions,
   noDeprecatedProps,
   noNestedTouchables,
@@ -42,6 +43,7 @@ const wcagRules = {
 
 const experimentalRules = {
   [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
+  [`${PLUGIN_NAME}/has-enough-button-size`]: 'error',
 }
 
 export const rules = {
@@ -53,6 +55,7 @@ export const rules = {
   'image-has-accessible': imageHasAccessible,
   'no-nested-touchables': noNestedTouchables,
   'touchable-has-alt': touchableHasAlt,
+  'has-enough-button-size': hasEnoughButtonSize,
 }
 
 module.exports = {
