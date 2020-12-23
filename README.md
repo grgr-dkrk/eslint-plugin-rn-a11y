@@ -58,7 +58,7 @@ TBD
 `plugin:rn-a11y/experimental` only.
 
 - [image-has-accessible](): `<Image />` must have `accessible` and `accessibilityLabel` props.
-- [has-enough-button-size](): Enforce `Touchable` components must have enough size.
+- [has-enough-button-size](./docs/rules/android/has-enough-button-size.md): Enforces `Touchable` components have enough size.
 
 ## Support
 
