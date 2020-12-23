@@ -2,13 +2,19 @@ import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import { BUTTON, STYLE, TOUCHABLE_ELEMENTS } from '../../constants'
 import { JSXOpeningElement } from '../../types'
-import { getStyleNames, isTargetElement } from '../../utils'
+import { AndroidScreenDensity } from '../../types/android'
+import {
+  densityToPx,
+  getStyleNames,
+  isTargetElement,
+  styleValueToPx,
+} from '../../utils'
 
 export const rule: Rule.RuleModule = {
   meta: {
     type: 'suggestion',
     docs: {
-      description: 'Enforce Touchable components must have enough size.',
+      description: 'Enforces `Touchable` components have enough size.',
     },
     schema: [],
   },
@@ -32,20 +38,23 @@ export const rule: Rule.RuleModule = {
         if (styles?.length) {
           // @ts-ignore
           if (styles.includes(node.parent.parent?.key?.name)) {
+            const density: AndroidScreenDensity =
+              context.options[0]?.density ?? 'xxhdpi'
+            const px = densityToPx(density)
             if (
               // @ts-ignore
               (node.key.name === 'width' &&
                 // @ts-ignore
-                node.value.value < 144) ||
+                styleValueToPx(node.value.value) < px) ||
               // @ts-ignore
               (node.key.name === 'height' &&
                 // @ts-ignore
-                node.value.value < 144)
+                styleValueToPx(node.value.value) < px)
             ) {
               context.report({
                 node,
                 // @ts-ignore
-                message: `\`${node.key.name}\` on Touchable is too small, 144px or higher is recommended.`,
+                message: `\`${node.key.name}\` on Touchable is too small, ${px}px or higher is recommended.`,
               })
             }
           }

@@ -1,6 +1,6 @@
+import { hasEnoughButtonSize } from './rules/android'
 import {
   hasAccessibilityHint,
-  hasEnoughButtonSize,
   hasValidAccessibilityActions,
   noDeprecatedProps,
   noNestedTouchables,
