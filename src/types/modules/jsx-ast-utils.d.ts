@@ -11,7 +11,7 @@ declare module 'jsx-ast-utils' {
    * Returns boolean indicating whether an `prop` exists as an attribute on a JSX element node.
    */
   export function hasProp(
-    props: TODO_JSX_NODE,
+    attributes: TODO_JSX_NODE,
     prop: string,
     options?: {
       ignoreCase?: boolean
@@ -23,7 +23,7 @@ declare module 'jsx-ast-utils' {
    * Returns a boolean indicating if any of `props` in prop argument exist on the node.
    */
   export function hasAnyProp(
-    props: TODO_JSX_NODE,
+    attributes: TODO_JSX_NODE,
     prop: string[],
     options?: {
       ignoreCase?: boolean
@@ -35,7 +35,7 @@ declare module 'jsx-ast-utils' {
    * Returns a boolean indicating if any of `props` in prop argument exist on the node.
    */
   export function hasEveryProp(
-    props: TODO_JSX_NODE,
+    attributes: TODO_JSX_NODE,
     prop: string[],
     options?: {
       ignoreCase?: boolean
@@ -47,12 +47,12 @@ declare module 'jsx-ast-utils' {
    * Returns the JSXAttribute itself or undefined, indicating the prop is not present on the JSXOpeningElement.
    */
   export function getProp(
-    props: TODO_JSX_NODE,
+    attributes: TODO_JSX_NODE,
     prop: string,
     options?: {
       ignoreCase?: boolean
     },
-  ): any
+  ): TODO_JSX_NODE
 
   /**
    * Returns the tagName associated with a JSXElement.
