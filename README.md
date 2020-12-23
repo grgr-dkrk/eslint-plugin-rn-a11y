@@ -40,7 +40,7 @@ module.exports = {
 - has-accessibility-hint: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 - has-valid-accessibility-actions: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
 - no-nested-touchables: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
-- [no-deprecated-props](): Disallow using deprecated props. (ex: `accessibilityComponentType` and `accessibilityTraits`.)
+- [no-deprecated-props](./docs/rules/basic/no-deprecated-props.md): Disallow using deprecated props. (ex: `accessibilityComponentType` and `accessibilityTraits`.)
 - [no-accessibilityLabel-for-testing](): Disallow set `accessibilityLabel` and `testID` both without `accessible`.
 
 ### Android
