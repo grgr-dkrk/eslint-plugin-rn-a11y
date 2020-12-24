@@ -7,7 +7,7 @@ see: https://developer.android.com/guide/topics/ui/accessibility/apps#large-cont
 
 ## Examples
 
-### Fail
+### Not Good
 
 ```tsx
 export const MaybeAccessibleComponent = () => {
@@ -50,7 +50,7 @@ const styles = Stylesheet.create({
 })
 ```
 
-### Succeed
+### Good
 
 ```tsx
 export const MaybeAccessibleComponent = () => {
