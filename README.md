@@ -75,4 +75,4 @@ Please see [Contribution Guide](CONTRIBUTING.md).
 
 ## License
 
-MIT
+[MIT](LICENSE.md)
