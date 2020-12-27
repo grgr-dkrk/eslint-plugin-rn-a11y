@@ -1,0 +1,27 @@
+{
+  "name": "@eslint-plugin-rn-a11y/core",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "grgr-dkrk (https://github.com/grgr-dkrk/)",
+  "homepage": "https://github.com/grgr-dkrk/eslint-plugin-rn-a11y",
+  "license": "MIT",
+  "main": "lib/rn-a11y-core.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grgr-dkrk/eslint-plugin-rn-a11y.git"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc -p ./ --outDir ./dist",
+    "typeCheck": "tsc --noEmit",
+    "lint": "eslint ./index.ts"
+  },
+  "bugs": {
+    "url": "https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/issues"
+  },
+  "devDependencies": {
+    "@eslint-plugin-rn-a11y/interfaces": "^0.0.1"
+  },
+  "dependencies": {
+    "@eslint-plugin-rn-a11y/rules": "^0.0.1"
+  }
+}

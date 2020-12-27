@@ -32,6 +32,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Install Modules
-        run: yarn
+        run: yarn install
       - name: check
         run: yarn ci

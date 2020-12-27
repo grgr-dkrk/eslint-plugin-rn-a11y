@@ -9,7 +9,9 @@ This is ported(some rules, utils) and extended [eslint-plugin-react-native-a11y]
 
 ## Install
 
-TBD
+```sh
+yarn add -D eslint @eslint-plugin-rn-a11y/core
+```
 
 ## Configuration
 
@@ -34,44 +36,11 @@ module.exports = {
 }
 ```
 
-## Supported Rules
+### Supported Rules
 
-### Basic
+See: [@eslint-plugin-rn-a11y/rules](./packages/rules/README.md).
 
-- has-accessibility-hint: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
-- has-valid-accessibility-actions: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
-- no-nested-touchables: ported from [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y).
-- [no-deprecated-props](./docs/rules/basic/no-deprecated-props.md): Disallow using deprecated props. (ex: `accessibilityComponentType` and `accessibilityTraits`.)
-- [no-accessibilityLabel-for-testing](./docs/rules/ios/no-accessibilityLabel-for-testing.md): Disallow set both `accessibilityLabel` and `testID` without `accessible`.
-
-### Android
-
-TBD
-
-### iOS
-
-- [accessible-image-has-label](./docs/rules/ios/accessible-image-has-label.md): Enforce `Image` have `accessibilityLabel` prop if it has `accessible` prop.
-
-### WCAG
-
-- [touchable-has-alt](./docs/rules/wcag/touchable-has-alt.md): Enforce `Touchable` components have both `accessible` and `accessibilityLabel` prop any children or self.
-
-### Experimental
-
-These rules are experimental and unstable.  
-Only available with `plugin:rn-a11y/experimental`.
-
-- [image-has-accessible](./docs/rules/ios/image-has-accessible.md): Enforce `<Image />` have both `accessible` and `accessibilityLabel` props.
-- [has-enough-button-size](./docs/rules/android/has-enough-button-size.md): Enforces `Touchable` components have enough size.
-
-## Support
-
-Supported React Native 0.57, or above.
-
-On < 0.57, please use [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y)  
-On React (not React Native), please use [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
-
-## Set Custom Component Name
+### Set Custom Component Name
 
 If you want to include custom components in rules, set the `customComponents` property to `rules` in `.eslintrc.js` as shown below.
 
@@ -91,6 +60,13 @@ rules: {
 ```
 
 Custom component settings are for each rule. It cannot be set in common with other rules.
+
+## Support
+
+Supported React Native 0.57, or above.
+
+If using < 0.57, please use [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y)  
+If using React (not React Native), please use [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
 
 ## Contribution
 
