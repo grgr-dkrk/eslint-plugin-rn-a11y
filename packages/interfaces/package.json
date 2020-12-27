@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "typeCheck": "tsc --noEmit",
-    "lint": "lint ./"
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
