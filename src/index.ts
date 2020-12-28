@@ -6,6 +6,7 @@ import {
   hasEnoughButtonSize,
   hasAccessibilityHint,
   hasValidAccessibilityActions,
+  adjustableSliderHasRole,
   noDeprecatedProps,
   noNestedTouchables,
 } from './rules'
@@ -21,6 +22,19 @@ const defaultConfig = {
   plugins: [PLUGIN_NAME],
 }
 
+export const rules = {
+  'has-accessibility-hint': hasAccessibilityHint,
+  'has-valid-accessibility-actions': hasValidAccessibilityActions,
+  'no-deprecated-props': noDeprecatedProps,
+  'accessible-image-has-label': accessibleImageHasLabel,
+  'no-accessibilityLabel-for-testing': noAccessibilityLabelForTesting,
+  'image-has-accessible': imageHasAccessible,
+  'no-nested-touchables': noNestedTouchables,
+  'touchable-has-alt': touchableHasAlt,
+  'has-enough-button-size': hasEnoughButtonSize,
+  'adjustable-slider-has-role': adjustableSliderHasRole,
+}
+
 const basicRules = {
   [`${PLUGIN_NAME}/has-accessibility-hint`]: 'error',
   [`${PLUGIN_NAME}/has-valid-accessibility-actions`]: 'error',
@@ -33,6 +47,7 @@ const androidRules = {}
 
 const iOSRules = {
   [`${PLUGIN_NAME}/accessible-image-has-label`]: 'error',
+  [`${PLUGIN_NAME}/adjustableSliderHasRole`]: 'error',
 }
 
 const wcagRules = {
@@ -42,18 +57,6 @@ const wcagRules = {
 const experimentalRules = {
   [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
   [`${PLUGIN_NAME}/has-enough-button-size`]: 'error',
-}
-
-export const rules = {
-  'has-accessibility-hint': hasAccessibilityHint,
-  'has-valid-accessibility-actions': hasValidAccessibilityActions,
-  'no-deprecated-props': noDeprecatedProps,
-  'accessible-image-has-label': accessibleImageHasLabel,
-  'no-accessibilityLabel-for-testing': noAccessibilityLabelForTesting,
-  'image-has-accessible': imageHasAccessible,
-  'no-nested-touchables': noNestedTouchables,
-  'touchable-has-alt': touchableHasAlt,
-  'has-enough-button-size': hasEnoughButtonSize,
 }
 
 module.exports = {

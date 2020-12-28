@@ -15,6 +15,7 @@ TBD
 ### iOS
 
 - [accessible-image-has-label](./docs/ios/accessible-image-has-label.md): Enforce `Image` have `accessibilityLabel` prop if it has `accessible` prop.
+- [adjustable-slider-has-role](./docs/ios/adjustable-slider-has-role.md): Enforce adjustable slider has `adjustable` role for iOS.
 
 ### WCAG
 

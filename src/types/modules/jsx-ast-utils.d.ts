@@ -62,9 +62,9 @@ declare module 'jsx-ast-utils' {
   /**
    * Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object. This function should return the most closely associated value with the intention of the JSX.
    */
-  export function getPropValue(
+  export function getPropValue<T = string | number | boolean>(
     prop: Record<string, unknown>,
-  ): string | number | boolean
+  ): T
 
   /**
    * Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object. This function should return a value only if we can extract a literal value from its attribute (i.e. values that have generic types in JavaScript - strings, numbers, booleans, etc.)
