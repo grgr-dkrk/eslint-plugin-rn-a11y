@@ -64,7 +64,7 @@ declare module 'jsx-ast-utils' {
    */
   export function getPropValue(
     prop: Record<string, unknown>,
-  ): string[] | number[] | boolean[]
+  ): string | number | boolean
 
   /**
    * Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object. This function should return a value only if we can extract a literal value from its attribute (i.e. values that have generic types in JavaScript - strings, numbers, booleans, etc.)

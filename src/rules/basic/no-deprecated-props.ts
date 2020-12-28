@@ -20,7 +20,7 @@ export const rule: Rule.RuleModule = {
   meta: {
     type: 'problem',
     docs: {
-      description: 'disallow using deprecated props.',
+      description: 'Disallow using deprecated props.',
     },
     schema: [],
   },
