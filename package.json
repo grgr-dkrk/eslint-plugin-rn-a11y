@@ -21,7 +21,8 @@
     "test": "jest --detectOpenHandles",
     "test:coverage": "jest --detectOpenHandles --coverage tests/**/*",
     "format": "prettier --write ./src/",
-    "ci": "yarn typeCheck && yarn lint && yarn test"
+    "ci": "yarn typeCheck && yarn lint && yarn test",
+    "prepare": "yarn build"
   },
   "dependencies": {
     "jsx-ast-utils": "^3.2.0"
