@@ -3,5 +3,4 @@ dist/
 reports/
 .vscode/
 yarn-error.log
-lerna-debug.log
 .DS_Store

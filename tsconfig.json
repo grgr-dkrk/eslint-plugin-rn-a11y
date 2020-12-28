@@ -3,7 +3,7 @@
     "target": "ES2019",
     "module": "CommonJS",
     "lib": ["ES2019"],
-    "typeRoots": ["node_modules/@types", "packages/interfaces/types/modules"],
+    "typeRoots": ["node_modules/@types", "src/types/modules"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

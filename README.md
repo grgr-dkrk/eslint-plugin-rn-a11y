@@ -38,7 +38,7 @@ module.exports = {
 
 ### Supported Rules
 
-See: [@eslint-plugin-rn-a11y/rules](./packages/rules/README.md).
+See: [Rules](./docs/rules/README.md).
 
 ### Set Custom Component Name
 
