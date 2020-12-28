@@ -86,5 +86,15 @@ module.exports = {
       ...defaultConfig,
       rules: experimentalRules,
     },
+    experimentalAll: {
+      ...defaultConfig,
+      rules: {
+        ...basicRules,
+        ...androidRules,
+        ...iOSRules,
+        ...wcagRules,
+        ...experimentalRules,
+      },
+    },
   },
 }

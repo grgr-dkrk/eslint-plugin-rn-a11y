@@ -22,7 +22,7 @@ They can be set to the `extends` property of `eslintrc`.
 - `plugin:rn-a11y/iOS`: iOS-specific rules, includes `basic`.
 - `plugin:rn-a11y/android`: Android-specific rules, includes `basic`.
 - `plugin:rn-a11y/wcag`: WCAG2.x rules, includes `basic`.
-- `plugin:rn-a11y/all`: Includes `basic`, `iOS`, and `android`.
+- `plugin:rn-a11y/all`: Includes `basic`, `iOS`, `wcag`, and `android`.
 
 For example:
 
