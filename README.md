@@ -9,9 +9,7 @@ This is ported(some rules, utils) and extended [eslint-plugin-react-native-a11y]
 
 ## Install
 
-```sh
-yarn add -D eslint eslint-plugin-rn-a11y
-```
+TBD
 
 ## Configuration
 
