@@ -1,11 +1,12 @@
 import { isTargetElement, findChild } from '../../../utils'
 import { Rule } from 'eslint'
-import { elementType, hasEveryProp } from 'jsx-ast-utils'
+import { hasEveryProp } from 'jsx-ast-utils'
 import {
   TOUCHABLE_ELEMENTS,
   ACCESSIBLE,
   ACCESSIBILITY_LABEL,
   TEXT,
+  CUSTOM_TOUCHABLE,
 } from '../../../constants'
 import { JSXOpeningElement } from '../../../types'
 
@@ -22,14 +23,21 @@ export const rule: Rule.RuleModule = {
   create: (context) => ({
     JSXOpeningElement: (node: JSXOpeningElement) => {
       const { parent } = node
-      if (isTargetElement(node, context.options, TOUCHABLE_ELEMENTS)) {
+      if (
+        isTargetElement(
+          node,
+          context.options,
+          TOUCHABLE_ELEMENTS,
+          CUSTOM_TOUCHABLE,
+        )
+      ) {
         if (!hasEveryProp(node.attributes, [ACCESSIBLE, ACCESSIBILITY_LABEL])) {
           const hasAltElement = findChild(parent, (child) => {
             return (
               hasEveryProp(child.attributes, [
                 ACCESSIBLE,
                 ACCESSIBILITY_LABEL,
-              ]) || elementType(child) === TEXT
+              ]) || isTargetElement(child, context.options, [TEXT], TEXT)
             )
           })
 

@@ -5,8 +5,13 @@
 
 import { findChild, isTargetElement } from '../../utils'
 import { Rule } from 'eslint'
-import { elementType, getProp, getPropValue } from 'jsx-ast-utils'
-import { ACCESSIBLE, TOUCHABLE_ELEMENTS, BUTTON } from '../../constants'
+import { getProp, getPropValue } from 'jsx-ast-utils'
+import {
+  ACCESSIBLE,
+  TOUCHABLE_ELEMENTS,
+  BUTTON,
+  CUSTOM_TOUCHABLE,
+} from '../../constants'
 import { JSXOpeningElement } from '../../types'
 
 export const rule: Rule.RuleModule = {
@@ -29,8 +34,12 @@ export const rule: Rule.RuleModule = {
         const clickableChild = findChild(
           parent,
           (child) =>
-            isTargetElement(child, context.options, TOUCHABLE_ELEMENTS) ||
-            elementType(child) === BUTTON,
+            isTargetElement(
+              child,
+              context.options,
+              TOUCHABLE_ELEMENTS,
+              CUSTOM_TOUCHABLE,
+            ) || isTargetElement(child, context.options, [BUTTON], BUTTON),
         )
 
         if (clickableChild) {

@@ -20,3 +20,4 @@ export const TOUCHABLE_ELEMENTS = [
   TOUCHABLE_WITHOUT_FEEDBACK,
   PRESSABLE,
 ]
+export const CUSTOM_TOUCHABLE = 'Touchable' as const

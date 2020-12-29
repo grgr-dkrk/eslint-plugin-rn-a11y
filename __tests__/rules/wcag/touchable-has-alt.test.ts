@@ -11,7 +11,7 @@ const ruleTester = new RuleTester(createTesterOptions())
 const ERROR_MESSAGE =
   'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessiblityLabel` for the `Touchable` Element to make it accessible.'
 
-ruleTester.run('imageButton-has-alt', touchableHasAlt, {
+ruleTester.run('touchable-has-alt', touchableHasAlt, {
   valid: [
     {
       code: `<TouchableOpacity><Image source={require('@expo/snack-static/react-native-logo.png')} accessible accessibilityLabel="Click Me" /></TouchableOpacity>`,

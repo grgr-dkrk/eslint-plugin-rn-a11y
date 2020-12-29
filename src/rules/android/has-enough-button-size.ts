@@ -1,6 +1,11 @@
 import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
-import { TOUCHABLE_ELEMENTS, BUTTON, STYLE } from '../../constants'
+import {
+  TOUCHABLE_ELEMENTS,
+  BUTTON,
+  STYLE,
+  CUSTOM_TOUCHABLE,
+} from '../../constants'
 import { JSXOpeningElement, AndroidScreenDensity } from '../../types'
 import {
   densityToPx,
@@ -23,10 +28,12 @@ export const rule: Rule.RuleModule = {
     return {
       JSXOpeningElement: (node: JSXOpeningElement) => {
         if (
-          isTargetElement(node, context.options, [
-            ...TOUCHABLE_ELEMENTS,
-            BUTTON,
-          ]) &&
+          isTargetElement(
+            node,
+            context.options,
+            [...TOUCHABLE_ELEMENTS, BUTTON],
+            CUSTOM_TOUCHABLE,
+          ) &&
           hasProp(node.attributes, STYLE)
         ) {
           const _styles = getStyleNames(node.attributes)

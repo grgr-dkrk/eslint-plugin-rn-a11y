@@ -16,7 +16,7 @@ export const rule: Rule.RuleModule = {
   create: (context) => ({
     JSXOpeningElement: (node: JSXOpeningElement) => {
       if (
-        isTargetElement(node, context.options, [IMAGE]) &&
+        isTargetElement(node, context.options, [IMAGE], IMAGE) &&
         hasProp(node.attributes, ACCESSIBLE) &&
         !hasProp(node.attributes, ACCESSIBILITY_LABEL)
       ) {
