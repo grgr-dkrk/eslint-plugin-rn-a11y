@@ -72,14 +72,17 @@ Custom component settings are for each rule. It cannot be set in common with oth
 
 ## Support
 
-Supported React Native 0.57, or above.
+- Node: `^10.12.0` or above.
+- React Native: `0.57` or above.
+- ESLint: `6` or above.
 
-If using < 0.57, please use [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y)  
-If using React (not React Native), please use [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+This plugin is not compatible with less than `React Native 0.57`. please use [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y) if using it.  
+React (not React Native) is not supported, please use [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
 
 ## Contribution
 
-Contribution is welcome!  
+Contribution is welcome!
+
 Please see [Contribution Guide](CONTRIBUTING.md).
 
 ## License

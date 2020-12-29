@@ -2,7 +2,13 @@
 
 ## Code of Conduct
 
+⚠️ If the Issue or PR contains content that does not comply with the Code of Conduct, we may remove it.
+
 [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md)
+
+## Open Issues
+
+[Issues](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/issues)
 
 ## Pull Request Process
 
