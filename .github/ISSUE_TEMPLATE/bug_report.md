@@ -2,10 +2,12 @@
 name: Bug report
 about: Create a report to help us improve
 title: "[Bug]"
-labels: ''
+labels: bug
 assignees: ''
 
 ---
+
+** If for rule bugs, please enter the rule name**
 
 **Describe the bug**
 
