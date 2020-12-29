@@ -41,13 +41,13 @@ See: [Rules](./docs/rules/README.md).
 ### Set Custom Component Name
 
 If you want to include custom components in rules, set the component name to `rules` in `.eslintrc.js` as shown below.  
-(When using `Button`, `TouchableXXX`, and `Pressable`, specify those as the `Touchable` property.)
+(When using `TouchableXXX` and `Pressable`, specify those as the `Touchable` property.)
 
 ```javascript
 // eslintrc.js
 
 const Image = ['MyPict']
-const Touchable = ['MyButton', 'MyTouchable']
+const Touchable = ['MyTouchableOpacity', 'MyPressable']
 
 const CustomComponents = {
   Image,
