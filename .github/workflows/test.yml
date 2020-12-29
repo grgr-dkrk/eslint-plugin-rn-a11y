@@ -35,3 +35,5 @@ jobs:
         run: yarn install
       - name: check
         run: yarn ci
+      - name: upload coverage
+        uses: codecov/codecov-action@v1

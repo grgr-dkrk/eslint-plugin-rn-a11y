@@ -19,9 +19,9 @@
     "typeCheck": "tsc --noEmit",
     "lint": "eslint ./src/",
     "test": "jest --detectOpenHandles",
-    "test:coverage": "jest --detectOpenHandles --coverage tests/**/*",
+    "test:coverage": "jest --detectOpenHandles --coverage",
     "format": "prettier --write ./src/",
-    "ci": "yarn typeCheck && yarn lint && yarn test",
+    "ci": "yarn typeCheck && yarn lint && yarn test:coverage",
     "prepare": "yarn build"
   },
   "dependencies": {

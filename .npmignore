@@ -1,11 +1,10 @@
 node_modules/
 dist/
-reports/
+coverage/
 .vscode/
 yarn-error.log
 .DS_Store
 src/
-reports/
 .prettierrc.js
 .eslintrc.js
 jest.config.js
