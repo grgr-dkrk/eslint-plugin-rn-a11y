@@ -54,16 +54,13 @@ const CustomComponents = {
   Touchable,
 }
 
-rules: {
-  'rn-a11y/no-nested-touchables': [
-    'error',
-    CustomComponents,
-  ],
-  'rn-a11y/touchable-has-alt': [
-    'error',
-    CustomComponents,
-  ],
-},
+module.exports = {
+  /* ... */
+  rules: {
+    'rn-a11y/no-nested-touchables': ['error', CustomComponents],
+    'rn-a11y/touchable-has-alt': ['error', CustomComponents],
+  },
+}
 ```
 
 Custom component settings are for each rule. It cannot be set in common with other rules.
