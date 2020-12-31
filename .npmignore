@@ -1,5 +1,4 @@
 node_modules/
-dist/
 coverage/
 .vscode/
 yarn-error.log
@@ -10,3 +9,4 @@ src/
 jest.config.js
 tsconfig.build.json
 tsconfig.json
+__tests__/
