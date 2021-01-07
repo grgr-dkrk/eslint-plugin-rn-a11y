@@ -47,7 +47,7 @@ const androidRules = {}
 
 const iOSRules = {
   [`${PLUGIN_NAME}/accessible-image-has-label`]: 'error',
-  [`${PLUGIN_NAME}/adjustableSliderHasRole`]: 'error',
+  [`${PLUGIN_NAME}/adjustable-slider-has-role`]: 'error',
 }
 
 const wcagRules = {
