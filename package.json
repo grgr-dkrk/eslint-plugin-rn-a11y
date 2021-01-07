@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-rn-a11y",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ESLint Plugin for Accessibility on React Native",
   "main": "./dist/index.js",
   "repository": "https://github.com/grgr-dkrk/eslint-plugin-rn-a11y",
