@@ -1,4 +1,4 @@
-import { isTargetElement } from '../../utils'
+import { createSchema, isTargetElement } from '../../utils'
 import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import { IMAGE, ACCESSIBLE, ACCESSIBILITY_LABEL } from '../../constants'
@@ -11,7 +11,7 @@ export const rule: Rule.RuleModule = {
       description:
         'Enforce `Image` must have `accessibilityLabel` prop if it has `accessible`. ',
     },
-    schema: [],
+    schema: createSchema(),
   },
   create: (context) => ({
     JSXOpeningElement: (node: JSXOpeningElement) => {

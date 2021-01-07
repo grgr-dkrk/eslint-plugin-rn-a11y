@@ -8,6 +8,7 @@ import {
 } from '../../constants'
 import { JSXOpeningElement, AndroidScreenDensity } from '../../types'
 import {
+  createSchema,
   densityToPx,
   getStyleNames,
   isTargetElement,
@@ -20,7 +21,7 @@ export const rule: Rule.RuleModule = {
     docs: {
       description: 'Enforces `Touchable` components have enough size.',
     },
-    schema: [],
+    schema: createSchema(),
   },
 
   create: (context) => {

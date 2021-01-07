@@ -31,5 +31,20 @@ ruleTester.run('accessible-image-has-label', accessibleImageHasLabel, {
         },
       ],
     },
+    {
+      code: `<View><MyImage accessible source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message:
+            'If an Image has `accessible` props, the Image should has `accessibilityLabel` props.',
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [
+        {
+          Image: ['MyImage'],
+        },
+      ],
+    },
   ],
 })

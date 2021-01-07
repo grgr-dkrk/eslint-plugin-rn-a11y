@@ -3,6 +3,7 @@ import { getProp, getPropValue, hasProp } from 'jsx-ast-utils'
 import { ACCESSIBILITY_ACTIONS, ACCESSIBILITY_ROLE } from '../../constants'
 import { AccessibilityActionInfo } from 'react-native'
 import { JSXOpeningElement } from '../../types'
+import { createSchema } from '../../utils'
 
 // ----------------------------------------------------------------------------
 // Rule Definition
@@ -14,7 +15,7 @@ export const rule: Rule.RuleModule = {
     docs: {
       description: 'Enforce adjustable slider has `adjustable` role for iOS.',
     },
-    schema: [],
+    schema: createSchema(),
   },
 
   create: (context) => ({

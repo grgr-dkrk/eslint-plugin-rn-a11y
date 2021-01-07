@@ -2,6 +2,7 @@ import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import { TEST_ID, ACCESSIBILITY_LABEL, ACCESSIBLE } from '../../constants'
 import { JSXOpeningElement } from '../../types'
+import { createSchema } from '../../utils'
 
 export const rule: Rule.RuleModule = {
   meta: {
@@ -10,7 +11,7 @@ export const rule: Rule.RuleModule = {
       description:
         'Disallow set `AccessibilityLabel` and `testID` both without `Accessible`.',
     },
-    schema: [],
+    schema: createSchema(),
   },
 
   create: (context) => ({

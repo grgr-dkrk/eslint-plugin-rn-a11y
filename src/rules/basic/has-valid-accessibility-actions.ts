@@ -16,6 +16,7 @@ import {
   ON_ACCESSIBILITY_ACTION,
 } from '../../constants'
 import { JSXOpeningElement } from '../../types'
+import { createSchema } from '../../utils'
 
 // ----------------------------------------------------------------------------
 // Rule Definition
@@ -37,7 +38,7 @@ export const rule: Rule.RuleModule = {
       description:
         'Enforce both accessibilityActions and onAccessibilityAction props are valid.',
     },
-    schema: [],
+    schema: createSchema(),
   },
 
   create: (context) => ({

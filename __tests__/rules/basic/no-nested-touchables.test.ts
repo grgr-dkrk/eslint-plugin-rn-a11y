@@ -39,5 +39,23 @@ ruleTester.run('no-nested-touchables', noNestedTouchables, {
       code: `<TouchableOpacity accessible onPress={() => {}}><View><TouchableOpacity><Text>Nested</Text></TouchableOpacity></View></TouchableOpacity>`,
       errors: [ERROR_MESSAGE],
     },
+    {
+      code: `<MyButton accessible onPress={() => {}}><View><TouchableOpacity><Text>Nested</Text></TouchableOpacity></View></MyButton>`,
+      errors: [ERROR_MESSAGE],
+      options: [
+        {
+          Touchable: ['MyButton'],
+        },
+      ],
+    },
+    {
+      code: `<TouchableOpacity accessible onPress={() => {}}><View><MyButton><Text>Nested</Text></MyButton></View></TouchableOpacity>`,
+      errors: [ERROR_MESSAGE],
+      options: [
+        {
+          Touchable: ['MyButton'],
+        },
+      ],
+    },
   ],
 })

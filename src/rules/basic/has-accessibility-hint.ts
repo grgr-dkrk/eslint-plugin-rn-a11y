@@ -7,6 +7,7 @@ import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import { ACCESSIBILITY_LABEL, ACCESSIBILITY_HINT } from '../../constants'
 import { JSXOpeningElement } from '../../types'
+import { createSchema } from '../../utils'
 
 export const rule: Rule.RuleModule = {
   meta: {
@@ -15,7 +16,7 @@ export const rule: Rule.RuleModule = {
       description:
         'Enforce accessibilityHint is used in conjunction with accessibilityLabel.',
     },
-    schema: [],
+    schema: createSchema(),
   },
 
   create: (context) => ({

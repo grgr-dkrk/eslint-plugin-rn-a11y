@@ -37,5 +37,19 @@ ruleTester.run('touchable-has-alt', touchableHasAlt, {
         },
       ],
     },
+    {
+      code: `<MyButton><Image source={require('@expo/snack-static/react-native-logo.png')} /></MyButton>`,
+      errors: [
+        {
+          message: ERROR_MESSAGE,
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [
+        {
+          Touchable: ['MyButton'],
+        },
+      ],
+    },
   ],
 })

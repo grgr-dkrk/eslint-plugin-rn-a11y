@@ -7,6 +7,7 @@ import {
   ACCESSIBILITY_STATE,
 } from '../../constants'
 import { JSXOpeningElement } from '../../types'
+import { createSchema } from '../../utils'
 
 type TargetPropName =
   | typeof ACCESSIBILITY_COMPONENT_TYPE
@@ -22,7 +23,7 @@ export const rule: Rule.RuleModule = {
     docs: {
       description: 'Disallow using deprecated props.',
     },
-    schema: [],
+    schema: createSchema(),
   },
   create: (context) => ({
     JSXOpeningElement: (node: JSXOpeningElement) => {

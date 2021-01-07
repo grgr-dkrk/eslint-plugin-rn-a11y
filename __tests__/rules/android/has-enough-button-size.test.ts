@@ -34,5 +34,14 @@ ruleTester.run('has-enough-button-size', hasEnoughButtonSize, {
       code: `export const Component = () => <TouchableOpacity style={[styles.wrapper, isActive && styles.isActive ]} />; const styles = Stylesheet.create({ wrapper: { width: "143px", height: "143px", } })`,
       errors: [ERROR_MESSAGE_WIDTH, ERROR_MESSAGE_HEIGHT],
     },
+    {
+      code: `export const Component = () => <MyButton style={[styles.wrapper, isActive && styles.isActive ]} />; const styles = Stylesheet.create({ wrapper: { width: "143px", height: "143px", } })`,
+      errors: [ERROR_MESSAGE_WIDTH, ERROR_MESSAGE_HEIGHT],
+      options: [
+        {
+          Touchable: ['MyButton'],
+        },
+      ],
+    },
   ],
 })

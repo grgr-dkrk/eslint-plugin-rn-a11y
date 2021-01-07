@@ -3,7 +3,7 @@
  * See: https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/blob/master/src/rules/no-nested-touchables.js
  */
 
-import { findChild, isTargetElement } from '../../utils'
+import { createSchema, findChild, isTargetElement } from '../../utils'
 import { Rule } from 'eslint'
 import { getProp, getPropValue } from 'jsx-ast-utils'
 import {
@@ -20,7 +20,7 @@ export const rule: Rule.RuleModule = {
     docs: {
       description: 'Disallow touchable elements inside `accessible={true}`.',
     },
-    schema: [],
+    schema: createSchema(),
   },
 
   create: (context) => ({

@@ -1,4 +1,4 @@
-import { isTargetElement, findChild } from '../../../utils'
+import { isTargetElement, findChild, createSchema } from '../../../utils'
 import { Rule } from 'eslint'
 import { hasEveryProp } from 'jsx-ast-utils'
 import {
@@ -17,7 +17,7 @@ export const rule: Rule.RuleModule = {
       description:
         'Enforce `Touchable` components must have `accessible` and `accessibilityLabel` prop any children or self',
     },
-    schema: [],
+    schema: createSchema(),
   },
 
   create: (context) => ({
