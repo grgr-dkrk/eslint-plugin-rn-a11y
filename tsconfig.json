@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "lib": ["ES2019"],
     "typeRoots": ["node_modules/@types", "src/types/modules"],
+    "downlevelIteration": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

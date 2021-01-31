@@ -9,6 +9,7 @@ import {
   adjustableSliderHasRole,
   noDeprecatedProps,
   noNestedTouchables,
+  noLongAlt,
 } from './rules'
 
 const PLUGIN_NAME = 'rn-a11y'
@@ -33,6 +34,7 @@ export const rules = {
   'touchable-has-alt': touchableHasAlt,
   'has-enough-button-size': hasEnoughButtonSize,
   'adjustable-slider-has-role': adjustableSliderHasRole,
+  'no-long-alt': noLongAlt,
 }
 
 const basicRules = {
@@ -41,6 +43,7 @@ const basicRules = {
   [`${PLUGIN_NAME}/no-deprecated-props`]: 'error',
   [`${PLUGIN_NAME}/no-accessibilityLabel-for-testing`]: 'error',
   [`${PLUGIN_NAME}/no-nested-touchables`]: 'error',
+  [`${PLUGIN_NAME}/no-long-alt`]: 'error',
 }
 
 const androidRules = {}
