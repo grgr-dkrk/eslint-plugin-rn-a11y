@@ -21,8 +21,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - uses: actions/checkout@v2
-      # commitlint
-      - uses: wagoid/commitlint-github-action@v2
       - name: get cache path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -35,7 +33,10 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install Modules
         run: yarn install
-      - name: check
+      # commitlint
+      - name: check commit messages
+        uses: wagoid/commitlint-github-action@v2
+      - name: check tests
         run: yarn ci
       - name: upload coverage
         uses: codecov/codecov-action@v1
