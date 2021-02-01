@@ -12,7 +12,10 @@
 
 ## Pull Request Process
 
-TBD
+Follow the rules of [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages.
+If the commit does not change the contents of the module itself, please write the `chore` prefix.
+
+WIP
 
 ### Install
 
