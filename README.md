@@ -59,6 +59,7 @@ module.exports = {
   rules: {
     'rn-a11y/no-nested-touchables': ['error', CustomComponents],
     'rn-a11y/touchable-has-alt': ['error', CustomComponents],
+    'rn-a11y/no-long-alt': ['error', { ...CustomComponents, limit: 100 }], // if specifying rule options
   },
 }
 ```
