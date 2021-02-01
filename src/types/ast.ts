@@ -1,5 +1,5 @@
 /**
- * from ast-types-flow
+ * original: ast-types-flow
  * https://github.com/kyldvs/ast-types-flow
  */
 
@@ -828,7 +828,7 @@ export type JSXClosingElement = {
 
 export type JSXElement = {
   // extends Node, Expression
-  children: Node[]
+  children: JSXElement[]
   closingElement?: JSXClosingElement
   openingElement: JSXOpeningElement
 }
@@ -860,8 +860,16 @@ export type JSXNamespacedName = {
   namespace: JSXIdentifier
 }
 
-// TODO: FIX any
-export type JSXOpeningElement = any
+export type JSXOpeningElement = {
+  attributes: Node[]
+  name: {
+    type: string
+    name: string
+  }
+  type: string
+  selfClosing: boolean
+  parent: JSXElement
+}
 
 export type JSXSpreadAttribute = {
   // extends Node

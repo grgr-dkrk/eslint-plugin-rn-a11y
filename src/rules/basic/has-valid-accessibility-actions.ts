@@ -3,7 +3,7 @@
  * See: https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/blob/master/src/rules/has-valid-accessibility-actions.js
  */
 
-import { Rule } from 'eslint'
+import { Rule } from '../../types/modules/eslint'
 import { getProp, getPropValue, hasEveryProp, hasProp } from 'jsx-ast-utils'
 import {
   MAGIC_TAP,
@@ -15,7 +15,6 @@ import {
   ACCESSIBILITY_ACTIONS,
   ON_ACCESSIBILITY_ACTION,
 } from '../../constants'
-import { JSXOpeningElement } from '../../types'
 import { createSchema } from '../../utils'
 
 // ----------------------------------------------------------------------------
@@ -42,7 +41,7 @@ export const rule: Rule.RuleModule = {
   },
 
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       const createErrorMessage = (message: string): void =>
         context.report({
           node,

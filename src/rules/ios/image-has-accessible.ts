@@ -1,8 +1,7 @@
 import { createSchema, isTargetElement } from '../../utils'
-import { Rule } from 'eslint'
+import { Rule } from '../../types/modules/eslint'
 import { hasEveryProp } from 'jsx-ast-utils'
 import { IMAGE, ACCESSIBLE, ACCESSIBILITY_LABEL } from '../../constants'
-import { JSXOpeningElement } from '../../types'
 
 export const rule: Rule.RuleModule = {
   meta: {
@@ -14,7 +13,7 @@ export const rule: Rule.RuleModule = {
     schema: createSchema(),
   },
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       if (
         isTargetElement(node, context.options, [IMAGE], IMAGE) &&
         !hasEveryProp(node.attributes, [ACCESSIBLE, ACCESSIBILITY_LABEL])

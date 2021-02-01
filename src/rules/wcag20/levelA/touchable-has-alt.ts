@@ -1,5 +1,4 @@
 import { isTargetElement, findChild, createSchema } from '../../../utils'
-import { Rule } from 'eslint'
 import { hasEveryProp } from 'jsx-ast-utils'
 import {
   TOUCHABLE_ELEMENTS,
@@ -8,7 +7,7 @@ import {
   TEXT,
   CUSTOM_TOUCHABLE,
 } from '../../../constants'
-import { JSXOpeningElement } from '../../../types'
+import { Rule } from '../../../types/modules/eslint'
 
 export const rule: Rule.RuleModule = {
   meta: {
@@ -21,7 +20,7 @@ export const rule: Rule.RuleModule = {
   },
 
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       const { parent } = node
       if (
         isTargetElement(

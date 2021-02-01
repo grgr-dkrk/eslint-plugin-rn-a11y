@@ -4,7 +4,7 @@
  */
 
 import { createSchema, findChild, isTargetElement } from '../../utils'
-import { Rule } from 'eslint'
+import { Rule } from '../../types/modules/eslint'
 import { getProp, getPropValue } from 'jsx-ast-utils'
 import {
   ACCESSIBLE,
@@ -12,7 +12,6 @@ import {
   BUTTON,
   CUSTOM_TOUCHABLE,
 } from '../../constants'
-import { JSXOpeningElement } from '../../types'
 
 export const rule: Rule.RuleModule = {
   meta: {
@@ -24,11 +23,11 @@ export const rule: Rule.RuleModule = {
   },
 
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       const { parent } = node
 
       const accessibleProp = getProp(node.attributes, ACCESSIBLE)
-      const hasAccessible = getPropValue(accessibleProp)
+      const hasAccessible = getPropValue<boolean>(accessibleProp)
 
       if (hasAccessible) {
         const clickableChild = findChild(

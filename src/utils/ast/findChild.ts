@@ -6,11 +6,10 @@ import { JSXElement, JSXOpeningElement } from '../../types'
 export const findChild = (
   node: JSXElement,
   callback: (child: JSXOpeningElement) => boolean,
-): JSXOpeningElement | undefined => {
+): JSXElement | undefined => {
   const { children } = node
   if (children && children.length > 0) {
-    // TODO: FIX
-    return ((children as unknown) as JSXElement[]).find((child) => {
+    return children.find((child) => {
       if (child.openingElement && child.openingElement.name) {
         if (callback(child.openingElement)) {
           return child.openingElement

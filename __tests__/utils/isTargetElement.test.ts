@@ -6,14 +6,14 @@ import {
 import { JSXOpeningElement } from '../../src/types'
 import { isTargetElement } from '../../src/utils'
 
-// TODO: fix type
-const createJSXMock = (name: string): JSXOpeningElement => ({
-  type: 'JSXOpeningElement',
-  name: {
-    type: 'JSXIdentifier',
-    name,
-  },
-})
+const createJSXMock = (name: string): JSXOpeningElement =>
+  ({
+    type: 'JSXOpeningElement',
+    name: {
+      type: 'JSXIdentifier',
+      name,
+    },
+  } as JSXOpeningElement)
 
 describe('getCustomNames', () => {
   // React Native Component
