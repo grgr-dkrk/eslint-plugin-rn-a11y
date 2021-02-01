@@ -1,4 +1,4 @@
-import { Rule } from 'eslint'
+import { Rule } from '../../types/modules/eslint'
 import { hasProp } from 'jsx-ast-utils'
 import {
   TOUCHABLE_ELEMENTS,
@@ -6,7 +6,7 @@ import {
   STYLE,
   CUSTOM_TOUCHABLE,
 } from '../../constants'
-import { JSXOpeningElement, AndroidScreenDensity } from '../../types'
+import { AndroidScreenDensity } from '../../types'
 import {
   createSchema,
   densityToPx,
@@ -27,7 +27,7 @@ export const rule: Rule.RuleModule = {
   create: (context) => {
     let styles: string[] = []
     return {
-      JSXOpeningElement: (node: JSXOpeningElement) => {
+      JSXOpeningElement: (node) => {
         if (
           isTargetElement(
             node,

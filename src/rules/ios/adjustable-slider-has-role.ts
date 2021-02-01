@@ -1,8 +1,7 @@
-import { Rule } from 'eslint'
+import { Rule } from '../../types/modules/eslint'
 import { getProp, getPropValue, hasProp } from 'jsx-ast-utils'
 import { ACCESSIBILITY_ACTIONS, ACCESSIBILITY_ROLE } from '../../constants'
 import { AccessibilityActionInfo } from 'react-native'
-import { JSXOpeningElement } from '../../types'
 import { createSchema } from '../../utils'
 
 // ----------------------------------------------------------------------------
@@ -19,7 +18,7 @@ export const rule: Rule.RuleModule = {
   },
 
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       const createErrorMessage = (message: string): void =>
         context.report({
           node,

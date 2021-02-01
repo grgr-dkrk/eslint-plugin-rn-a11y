@@ -1,7 +1,6 @@
-import { Rule } from 'eslint'
+import { Rule } from '../../types/modules/eslint'
 import { getProp, getPropValue } from 'jsx-ast-utils'
 import { ACCESSIBILITY_LABEL } from '../../constants'
-import { JSXOpeningElement } from '../../types'
 import { createSchema } from '../../utils'
 
 export const rule: Rule.RuleModule = {
@@ -16,7 +15,7 @@ export const rule: Rule.RuleModule = {
   create: (context) => {
     const limit = context.options[0]?.limit ?? 125
     return {
-      JSXOpeningElement: (node: JSXOpeningElement) => {
+      JSXOpeningElement: (node) => {
         const labelProp = getProp(node.attributes, ACCESSIBILITY_LABEL)
         const accessibilityLabel = getPropValue<string>(labelProp)
         if (accessibilityLabel && [...accessibilityLabel].length > limit) {

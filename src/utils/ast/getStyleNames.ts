@@ -1,13 +1,13 @@
 import { getProp } from 'jsx-ast-utils'
 import { STYLE } from '../../constants/props'
-
-// TODO FIX
-type TODO_JSX_NODE = any
+import { JSXOpeningElement } from '../../types'
 
 /**
  * get all styles from node.attributes.
  */
-export const getStyleNames = (attributes: TODO_JSX_NODE): string[] | void => {
+export const getStyleNames = (
+  attributes: JSXOpeningElement['attributes'],
+): string[] | void => {
   const styleProp = getProp(attributes, STYLE)
   if (!styleProp?.value) return
   const { value } = styleProp

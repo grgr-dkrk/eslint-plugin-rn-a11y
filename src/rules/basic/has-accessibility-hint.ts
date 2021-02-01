@@ -3,10 +3,9 @@
  * See: https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/blob/master/src/rules/has-accessibility-hint.js
  */
 
-import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import { ACCESSIBILITY_LABEL, ACCESSIBILITY_HINT } from '../../constants'
-import { JSXOpeningElement } from '../../types'
+import { Rule } from '../../types/modules/eslint'
 import { createSchema } from '../../utils'
 
 export const rule: Rule.RuleModule = {
@@ -20,7 +19,7 @@ export const rule: Rule.RuleModule = {
   },
 
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       if (
         hasProp(node.attributes, ACCESSIBILITY_LABEL) &&
         !hasProp(node.attributes, ACCESSIBILITY_HINT)

@@ -1,7 +1,6 @@
 import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import { TEST_ID, ACCESSIBILITY_LABEL, ACCESSIBLE } from '../../constants'
-import { JSXOpeningElement } from '../../types'
 import { createSchema } from '../../utils'
 
 export const rule: Rule.RuleModule = {
@@ -15,7 +14,7 @@ export const rule: Rule.RuleModule = {
   },
 
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       if (
         hasProp(node.attributes, TEST_ID) &&
         hasProp(node.attributes, ACCESSIBILITY_LABEL) &&

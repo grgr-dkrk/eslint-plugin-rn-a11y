@@ -1,4 +1,4 @@
-import { Rule } from 'eslint'
+import { Rule } from '../../types/modules/eslint'
 import { hasProp } from 'jsx-ast-utils'
 import {
   ACCESSIBILITY_COMPONENT_TYPE,
@@ -6,7 +6,6 @@ import {
   ACCESSIBILITY_ROLE,
   ACCESSIBILITY_STATE,
 } from '../../constants'
-import { JSXOpeningElement } from '../../types'
 import { createSchema } from '../../utils'
 
 type TargetPropName =
@@ -26,7 +25,7 @@ export const rule: Rule.RuleModule = {
     schema: createSchema(),
   },
   create: (context) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+    JSXOpeningElement: (node) => {
       if (hasProp(node.attributes, ACCESSIBILITY_COMPONENT_TYPE)) {
         context.report({
           node,
