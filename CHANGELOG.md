@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.0.0...v1.1.0) (2021-02-01)
+
+
+### Features
+
+* improve ESLint types(Node) ([b30c156](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/b30c156e2aafcd4a60872873f8a59bc262e0c9e4))
+
 # 1.0.0 (2021-01-31)
 
 
