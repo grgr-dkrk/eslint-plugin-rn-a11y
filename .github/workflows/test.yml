@@ -37,7 +37,7 @@ jobs:
       - name: conventional-changelog-lint-config-cz
         # https://github.com/wagoid/commitlint-github-action/issues/48#issuecomment-683369237
         # $GITHUB_WORKSPACE is the path to your repository
-        run: echo "::set-env name=NODE_PATH::$GITHUB_WORKSPACE/node_modules"
+        run: echo "NODE_PATH=$GITHUB_WORKSPACE/node_modules" >> $GITHUB_ENV
       - name: check commit messages
         uses: wagoid/commitlint-github-action@v2
       - name: check tests
