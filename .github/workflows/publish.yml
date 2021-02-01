@@ -1,6 +1,8 @@
 name: Publish
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
@@ -32,6 +34,8 @@ jobs:
         run: yarn install
       - name: check
         run: yarn ci
+      - name: upload coverage
+        uses: codecov/codecov-action@v1
       - name: semantic-release
         if: matrix.node-version == '12.x'
         run: |
