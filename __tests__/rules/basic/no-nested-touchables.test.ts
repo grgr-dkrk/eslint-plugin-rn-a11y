@@ -1,4 +1,4 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { noNestedTouchables } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
@@ -7,6 +7,7 @@ const ruleTester = new RuleTester(createTesterOptions())
 const ERROR_MESSAGE =
   'Elements with `accessible={true}` must not have any clickable elements inside'
 
+// @ts-ignore
 ruleTester.run('no-nested-touchables', noNestedTouchables, {
   valid: [
     {

@@ -10,7 +10,7 @@ import {
 } from '../ast'
 import * as ESTree from 'ESTree'
 
-export namespace Rule {
+declare namespace Rule {
   interface RuleModule extends OriginalRule.RuleModule {
     create(context: RuleContext): RuleListener
   }
@@ -21,18 +21,14 @@ export namespace Rule {
 
   type ReportDescriptor = OriginalRule.ReportDescriptorMessage &
     ReportDescriptorLocation & {
-      node: JSXOpeningElementType | JSXElementType
+      node: JSXOpeningElementType
     }
 
   interface NodeListener extends OriginalRule.NodeListener {
-    JSXOpeningElement?: (
-      node: JSXOpeningElementType & OriginalRule.NodeParentExtension,
-    ) => void
+    JSXOpeningElement?: (node: JSXOpeningElementType) => void
   }
   interface RuleListener extends OriginalRule.RuleListener {
-    JSXOpeningElement?: (
-      node: JSXOpeningElementType & OriginalRule.NodeParentExtension,
-    ) => void
+    JSXOpeningElement?: (node: JSXOpeningElementType) => void
     Property?: (
       node: ESTree.Property & OriginalRule.NodeParentExtension,
     ) => void
@@ -48,17 +44,4 @@ export namespace Rule {
       | NodeListener[keyof NodeListener]
       | undefined
   }
-}
-
-export class RuleTester extends OriginalRuleTester {
-  constructor(config?: any)
-
-  run(
-    name: string,
-    rule: Rule.RuleModule,
-    tests: {
-      valid?: Array<string | RuleTester.ValidTestCase>
-      invalid?: RuleTester.InvalidTestCase[]
-    },
-  ): void
 }

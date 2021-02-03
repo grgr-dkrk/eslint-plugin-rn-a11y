@@ -1,4 +1,4 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { adjustableSliderHasRole } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
@@ -8,6 +8,7 @@ import { createTesterOptions } from '../../createTesterOptions'
 
 const ruleTester = new RuleTester(createTesterOptions())
 
+// @ts-ignore
 ruleTester.run('adjustable-slider-has-role', adjustableSliderHasRole, {
   valid: [
     {

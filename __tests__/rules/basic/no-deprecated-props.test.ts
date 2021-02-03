@@ -1,4 +1,4 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { noDeprecatedProps } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
@@ -10,6 +10,7 @@ const ERROR_ACCESSIBILITY_TRAITS =
 const ERROR_ACCESSIBILITY_COMPONENT_TYPE =
   '`accessibilityComponentType` is deprecated. Use `accessibilityRole` instead.'
 
+// @ts-ignore
 ruleTester.run('no-deprecated-props', noDeprecatedProps, {
   valid: [
     {

@@ -1,4 +1,4 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { hasEnoughButtonSize } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
@@ -9,6 +9,7 @@ const ERROR_MESSAGE_WIDTH =
 const ERROR_MESSAGE_HEIGHT =
   '`height` on Touchable is too small, 144px or higher is recommended.'
 
+// @ts-ignore
 ruleTester.run('has-enough-button-size', hasEnoughButtonSize, {
   valid: [
     {

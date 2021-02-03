@@ -1,4 +1,4 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { touchableHasAlt } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
@@ -11,6 +11,7 @@ const ruleTester = new RuleTester(createTesterOptions())
 const ERROR_MESSAGE =
   'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessiblityLabel` for the `Touchable` Element to make it accessible.'
 
+// @ts-ignore
 ruleTester.run('touchable-has-alt', touchableHasAlt, {
   valid: [
     {

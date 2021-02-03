@@ -1,9 +1,10 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { noLongAlt } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
 const ruleTester = new RuleTester(createTesterOptions())
 
+// @ts-ignore
 ruleTester.run('no-long-alt', noLongAlt, {
   valid: [
     {
