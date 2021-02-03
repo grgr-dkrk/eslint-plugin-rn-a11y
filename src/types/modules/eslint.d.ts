@@ -1,22 +1,64 @@
-import { Rule as OriginalRule, Scope as OriginalScope } from 'eslint'
-import { JSXOpeningElement } from '../ast'
-import * as ESTree from 'estree'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  AST,
+  Rule as OriginalRule,
+  RuleTester as OriginalRuleTester,
+} from 'eslint'
+import {
+  JSXElement as JSXElementType,
+  JSXOpeningElement as JSXOpeningElementType,
+} from '../ast'
+import * as ESTree from 'ESTree'
 
 export namespace Rule {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface RuleModule extends OriginalRule.RuleModule {
-    create(context: RuleContext): OriginalRule.RuleListener
+    create(context: RuleContext): RuleListener
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface RuleContext extends OriginalRule.RuleContext {
+    report(descriptor: ReportDescriptor): void
+  }
+
+  type ReportDescriptor = OriginalRule.ReportDescriptorMessage &
+    ReportDescriptorLocation & {
+      node: JSXOpeningElementType | JSXElementType
+    }
+
   interface NodeListener extends OriginalRule.NodeListener {
     JSXOpeningElement?: (
-      node: JSXOpeningElement & OriginalRule.NodeParentExtension,
+      node: JSXOpeningElementType & OriginalRule.NodeParentExtension,
     ) => void
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface RuleListener extends OriginalRule.RuleListener {
-    [key: string]: ((node: JSXOpeningElement) => void) | undefined
+    JSXOpeningElement?: (
+      node: JSXOpeningElementType & OriginalRule.NodeParentExtension,
+    ) => void
+    Property?: (
+      node: ESTree.Property & OriginalRule.NodeParentExtension,
+    ) => void
+    [key: string]:
+      | ((codePath: CodePath, node: Node) => void)
+      | ((segment: CodePathSegment, node: Node) => void)
+      | ((
+          fromSegment: CodePathSegment,
+          toSegment: CodePathSegment,
+          node: Node,
+        ) => void)
+      | ((node: Node) => void)
+      | NodeListener[keyof NodeListener]
+      | undefined
   }
+}
+
+export class RuleTester extends OriginalRuleTester {
+  constructor(config?: any)
+
+  run(
+    name: string,
+    rule: Rule.RuleModule,
+    tests: {
+      valid?: Array<string | RuleTester.ValidTestCase>
+      invalid?: RuleTester.InvalidTestCase[]
+    },
+  ): void
 }

@@ -1,4 +1,4 @@
-import { RuleTester } from 'eslint'
+import { RuleTester } from '../../../src/types/modules/eslint'
 import { hasValidAccessibilityActions } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
