@@ -1,4 +1,4 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { hasAccessibilityHint } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
@@ -6,6 +6,7 @@ const ruleTester = new RuleTester(createTesterOptions())
 
 const ERROR_MESSAGE = 'has accessibilityLabel prop but no accessibilityHint'
 
+// @ts-ignore
 ruleTester.run('has-accessibility-hint', hasAccessibilityHint, {
   valid: [
     {

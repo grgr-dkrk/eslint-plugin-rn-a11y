@@ -1,11 +1,9 @@
-import { JSXElement } from '../ast'
-
 type HasPropOptions = {
   ignoreCase?: boolean
   spreadStrict?: boolean
 }
 
-type JSX_NODE_ELEMENTS = JSXElement[]
+type JSX_NODE_ELEMENTS = import('../ast').Node[]
 
 declare module 'jsx-ast-utils' {
   /**
@@ -47,18 +45,20 @@ declare module 'jsx-ast-utils' {
   /**
    * Returns the JSXAttribute itself or undefined, indicating the prop is not present on the JSXOpeningElement.
    */
-  export function getProp(
+  export function getProp<T = import('../ast').JSXExpressionContainer>(
     attributes: JSX_NODE_ELEMENTS,
     prop: string,
     options?: {
       ignoreCase?: boolean
     },
-  ): JSXElement | undefined
+  ): import('../ast').JSXAttribute<T> | undefined
 
   /**
    * Returns the tagName associated with a JSXElement.
    */
-  export function elementType(node: JSX_NODE_ELEMENTS): string
+  export function elementType(
+    node: import('../ast').JSXOpeningElement | import('../ast').JSXElement,
+  ): string
 
   /**
    * Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object. This function should return the most closely associated value with the intention of the JSX.

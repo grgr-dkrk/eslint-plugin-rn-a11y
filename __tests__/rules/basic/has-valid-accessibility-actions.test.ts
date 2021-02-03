@@ -1,4 +1,4 @@
-import { RuleTester } from '../../../src/types/modules/eslint'
+import { RuleTester } from 'eslint'
 import { hasValidAccessibilityActions } from '../../../src/rules'
 import { createTesterOptions } from '../../createTesterOptions'
 
@@ -10,6 +10,7 @@ const ruleTester = new RuleTester(createTesterOptions())
 
 ruleTester.run(
   'has-valid-accessibility-actions',
+  // @ts-ignore
   hasValidAccessibilityActions,
   {
     valid: [
