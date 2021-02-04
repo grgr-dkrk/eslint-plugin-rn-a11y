@@ -10,7 +10,6 @@ const ERROR_ACCESSIBILITY_TRAITS =
 const ERROR_ACCESSIBILITY_COMPONENT_TYPE =
   '`accessibilityComponentType` is deprecated. Use `accessibilityRole` instead.'
 
-// @ts-ignore
 ruleTester.run('no-deprecated-props', noDeprecatedProps, {
   valid: [
     {

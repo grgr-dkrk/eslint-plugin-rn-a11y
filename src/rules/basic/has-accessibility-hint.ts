@@ -5,7 +5,7 @@
 
 import { hasProp } from 'jsx-ast-utils'
 import { ACCESSIBILITY_LABEL, ACCESSIBILITY_HINT } from '../../constants'
-import { Rule } from '../../types/modules/eslint'
+import { Rule } from 'eslint'
 import { createSchema } from '../../utils'
 
 export const rule: Rule.RuleModule = {

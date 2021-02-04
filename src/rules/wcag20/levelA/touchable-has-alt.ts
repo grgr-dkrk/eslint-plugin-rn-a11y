@@ -7,7 +7,7 @@ import {
   TEXT,
   CUSTOM_TOUCHABLE,
 } from '../../../constants'
-import { Rule } from '../../../types/modules/eslint'
+import { Rule } from 'eslint'
 
 export const rule: Rule.RuleModule = {
   meta: {

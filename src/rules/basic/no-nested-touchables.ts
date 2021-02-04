@@ -4,7 +4,7 @@
  */
 
 import { createSchema, findChild, isTargetElement } from '../../utils'
-import { Rule } from '../../types/modules/eslint'
+import { Rule } from 'eslint'
 import { getProp, getPropValue } from 'jsx-ast-utils'
 import {
   ACCESSIBLE,
