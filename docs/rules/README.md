@@ -8,6 +8,7 @@
 - [no-deprecated-props](./basic/no-deprecated-props.md): Disallow using deprecated props. (ex: `accessibilityComponentType` and `accessibilityTraits`.)
 - [no-accessibilityLabel-for-testing](./ios/no-accessibilityLabel-for-testing.md): Disallow set both `accessibilityLabel` and `testID` without `accessible`.
 - [no-long-alt](./basic/no-long-alt.md): Enforces limit number of alt characters.
+- [no-same-label-and-hint](./basic/no-same-label-and-hint.md): Prohibit the same sentence for `accessibilityLabel` and `accessibilityHint`.
 
 ### Android
 
