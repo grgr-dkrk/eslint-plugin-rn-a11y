@@ -1,5 +1,7 @@
 # Prohibit the same sentence for `accessibilityLabel` and `accessibilityHint`
 
+`rn-a11y/no-same-label-and-hint`
+
 Normally, `accessibilityHint` is read after `accessibilityLabel`.  
 It is recommended not to specify the same description.
 

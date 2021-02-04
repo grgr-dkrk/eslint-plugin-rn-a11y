@@ -1,5 +1,7 @@
 # Disallow using deprecated props
 
+`rn-a11y/no-deprecated-props`
+
 `accessibilityComponentType` and `accessibilityTraits` prop have been deprecated since 0.57. These props no longer work. Therefore, use `accessibilityRole` and `accessibilityState`.  
 see: https://reactnative.dev/docs/accessibility#accessibilityrole  
 see: https://reactnative.dev/docs/accessibility#accessibilitystate

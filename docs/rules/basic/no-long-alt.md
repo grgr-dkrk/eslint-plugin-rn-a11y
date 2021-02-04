@@ -1,5 +1,7 @@
 # Enforces limit number of alt text
 
+`rn-a11y/no-long-alt`
+
 Alt text that is too long will be ignored by some screen readers. Ideally, it should fit within 125 characters.
 
 ## Type

@@ -1,5 +1,7 @@
 # Enforces `Touchable` components have enough size
 
+`rn-a11y/has-enough-button-size`
+
 **⚠️ NOTE:** This rule is **experimental**. It is not accurate and does not support inline-style, and the `Stylesheet` must appear after the component declaration.
 
 `Touchable` and `Plessable` should have at least a dimension of `48dp x 48dp` to be touchable.  

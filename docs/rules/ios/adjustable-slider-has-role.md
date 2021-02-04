@@ -1,5 +1,7 @@
 # Enforce adjustable slider has `adjustable` role for iOS.
 
+`rn-a11y/adjustable-slider-has-role`
+
 The `accessibilityRole="adjustable"` role is required for iOS to recognize components that can be increased or decreased.
 
 ## Examples

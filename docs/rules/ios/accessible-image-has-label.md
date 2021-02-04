@@ -1,5 +1,7 @@
 # Enforce `Image` must have `accessibilityLabel` prop if it has `accessible` prop.
 
+`rn-a11y/accessible-image-has-label`
+
 If `Image` is accessible, it is recommended that `accessibilityLabel` be set.
 
 ## Examples

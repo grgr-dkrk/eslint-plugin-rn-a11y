@@ -1,6 +1,8 @@
 # Enforce the `Touchable` component itself or its children to be accessible.
 
-TBD
+`rn-a11y/touchable-has-alt`
+
+Manipulable elements must include labels.
 
 ## Examples
 
