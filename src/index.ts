@@ -10,6 +10,7 @@ import {
   noDeprecatedProps,
   noNestedTouchables,
   noLongAlt,
+  noSameLabelAndHint,
 } from './rules'
 
 const PLUGIN_NAME = 'rn-a11y'
@@ -35,6 +36,7 @@ export const rules = {
   'has-enough-button-size': hasEnoughButtonSize,
   'adjustable-slider-has-role': adjustableSliderHasRole,
   'no-long-alt': noLongAlt,
+  'no-same-label-and-hint': noSameLabelAndHint,
 }
 
 const basicRules = {
@@ -44,6 +46,7 @@ const basicRules = {
   [`${PLUGIN_NAME}/no-accessibilityLabel-for-testing`]: 'error',
   [`${PLUGIN_NAME}/no-nested-touchables`]: 'error',
   [`${PLUGIN_NAME}/no-long-alt`]: 'error',
+  [`${PLUGIN_NAME}/no-same-label-and-hint`]: 'error',
 }
 
 const androidRules = {}
