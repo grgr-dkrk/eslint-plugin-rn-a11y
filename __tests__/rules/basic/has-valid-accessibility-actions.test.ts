@@ -10,7 +10,6 @@ const ruleTester = new RuleTester(createTesterOptions())
 
 ruleTester.run(
   'has-valid-accessibility-actions',
-  // @ts-ignore
   hasValidAccessibilityActions,
   {
     valid: [

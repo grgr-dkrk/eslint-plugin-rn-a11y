@@ -11,7 +11,6 @@ const ruleTester = new RuleTester(createTesterOptions())
 const ERROR_MESSAGE =
   'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessiblityLabel` for the `Touchable` Element to make it accessible.'
 
-// @ts-ignore
 ruleTester.run('touchable-has-alt', touchableHasAlt, {
   valid: [
     {

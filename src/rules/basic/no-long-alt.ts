@@ -1,4 +1,4 @@
-import { Rule } from '../../types/modules/eslint'
+import { Rule } from 'eslint'
 import { getProp, getPropValue } from 'jsx-ast-utils'
 import { ACCESSIBILITY_LABEL } from '../../constants'
 import { createSchema } from '../../utils'

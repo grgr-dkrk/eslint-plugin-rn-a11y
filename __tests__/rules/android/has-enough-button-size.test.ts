@@ -9,7 +9,6 @@ const ERROR_MESSAGE_WIDTH =
 const ERROR_MESSAGE_HEIGHT =
   '`height` on Touchable is too small, 144px or higher is recommended.'
 
-// @ts-ignore
 ruleTester.run('has-enough-button-size', hasEnoughButtonSize, {
   valid: [
     {

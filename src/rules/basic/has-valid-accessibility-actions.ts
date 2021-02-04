@@ -3,7 +3,7 @@
  * See: https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/blob/master/src/rules/has-valid-accessibility-actions.js
  */
 
-import { Rule } from '../../types/modules/eslint'
+import { Rule } from 'eslint'
 import { getProp, getPropValue, hasEveryProp, hasProp } from 'jsx-ast-utils'
 import {
   MAGIC_TAP,

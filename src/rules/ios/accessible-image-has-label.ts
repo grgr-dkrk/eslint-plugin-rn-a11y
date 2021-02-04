@@ -1,5 +1,5 @@
 import { createSchema, isTargetElement } from '../../utils'
-import { Rule } from '../../types/modules/eslint'
+import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import { IMAGE, ACCESSIBLE, ACCESSIBILITY_LABEL } from '../../constants'
 

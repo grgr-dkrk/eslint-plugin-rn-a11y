@@ -7,7 +7,6 @@ const ruleTester = new RuleTester(createTesterOptions())
 const ERROR_MESSAGE =
   'Elements with `accessible={true}` must not have any clickable elements inside'
 
-// @ts-ignore
 ruleTester.run('no-nested-touchables', noNestedTouchables, {
   valid: [
     {

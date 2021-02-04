@@ -6,7 +6,6 @@ const ruleTester = new RuleTester(createTesterOptions())
 
 const ERROR_MESSAGE = 'has accessibilityLabel prop but no accessibilityHint'
 
-// @ts-ignore
 ruleTester.run('has-accessibility-hint', hasAccessibilityHint, {
   valid: [
     {

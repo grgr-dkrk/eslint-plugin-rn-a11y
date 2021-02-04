@@ -1,4 +1,4 @@
-import { Rule } from '../../types/modules/eslint'
+import { Rule } from 'eslint'
 import { getProp, getPropValue, hasProp } from 'jsx-ast-utils'
 import { ACCESSIBILITY_ACTIONS, ACCESSIBILITY_ROLE } from '../../constants'
 import { AccessibilityActionInfo } from 'react-native'

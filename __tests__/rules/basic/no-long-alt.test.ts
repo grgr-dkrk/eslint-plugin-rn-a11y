@@ -4,7 +4,6 @@ import { createTesterOptions } from '../../createTesterOptions'
 
 const ruleTester = new RuleTester(createTesterOptions())
 
-// @ts-ignore
 ruleTester.run('no-long-alt', noLongAlt, {
   valid: [
     {

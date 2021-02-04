@@ -1,4 +1,4 @@
-import { Rule } from '../../types/modules/eslint'
+import { Rule } from 'eslint'
 import { hasProp } from 'jsx-ast-utils'
 import {
   ACCESSIBILITY_COMPONENT_TYPE,

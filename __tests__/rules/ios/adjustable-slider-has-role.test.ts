@@ -8,7 +8,6 @@ import { createTesterOptions } from '../../createTesterOptions'
 
 const ruleTester = new RuleTester(createTesterOptions())
 
-// @ts-ignore
 ruleTester.run('adjustable-slider-has-role', adjustableSliderHasRole, {
   valid: [
     {
