@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.2.0...v1.3.0) (2021-02-04)
+
+
+### Features
+
+* **rules:** add `no-same-label-and-hint` rule ([8ac1ab7](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/8ac1ab706d4bca97130521f08dfe95029c8d9094))
+
 # [1.2.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.1.0...v1.2.0) (2021-02-04)
 
 
