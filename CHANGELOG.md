@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.1.0...v1.2.0) (2021-02-04)
+
+
+### Bug Fixes
+
+* **types:** Fix definitions ([863247c](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/863247c66ce272ad33965c3dd04bba0bf49ef343))
+* **types:** fix eslint dts for declare collectry ([546324c](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/546324ce0739b2e394da5a3c9a980d3e1df4e3c2))
+
+
+### Features
+
+* fix ESLint types(workaround) ([2ace338](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/2ace338eeb6f0793cf5fa6c417bcfee407e7e230))
+
 # [1.1.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.0.0...v1.1.0) (2021-02-01)
 
 
