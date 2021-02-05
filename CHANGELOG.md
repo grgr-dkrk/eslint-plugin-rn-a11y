@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.4.0...v1.5.0) (2021-02-05)
+
+
+### Features
+
+* **rule:** has-accessibility-hint is no longer include for basic preset ([c2e0d24](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/c2e0d24e44429fd0d3716ac839df69ac8fd6e013))
+
 # [1.4.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.3.0...v1.4.0) (2021-02-05)
 
 
