@@ -40,7 +40,7 @@ See: [Rules](./docs/rules/README.md).
 
 ### Options
 
-Some rules have options. Check each [rules](./docs/rules/README.md) for available options.
+Some rules have options. Check each [rules](./docs/rules/README.md) for available options.  
 For example, to set the limit option with [no-long-alt](./docs/rules/basic/no-long-alt.md):
 
 ```javascript
@@ -94,7 +94,7 @@ Custom component settings are for each rule. It cannot be set in common with oth
 - React Native: `0.57` or above.
 - ESLint: `6` or above.
 
-This plugin is not compatible with less than `React Native 0.57`. please use [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y) if using it.  
+This plugin is not compatible with less than `React Native 0.57`, please use [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y) if using it.  
 React (not React Native) is not supported, please use [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
 
 ## Contribution
