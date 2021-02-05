@@ -38,6 +38,28 @@ module.exports = {
 
 See: [Rules](./docs/rules/README.md).
 
+### Options
+
+Some rules have options. Check each [rules](./docs/rules/README.md) for available options.
+For example, to set the limit option with [no-long-alt](./docs/rules/basic/no-long-alt.md):
+
+```javascript
+// eslintrc.js
+
+module.exports = {
+  /* ... */
+  rules: {
+    'rn-a11y/no-long-alt': [
+      'error',
+      {
+        limit: 100,
+      },
+    ],
+  },
+  /* ... */
+}
+```
+
 ### Set Custom Component Name
 
 If you want to include custom components in rules, set the component name to `rules` in `.eslintrc.js` as shown below.  
