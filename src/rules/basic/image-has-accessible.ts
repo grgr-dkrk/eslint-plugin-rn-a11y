@@ -10,7 +10,7 @@ const createErrorMessage = (isSupportedIos: boolean) =>
 
 export const rule: Rule.RuleModule = {
   meta: {
-    type: 'suggestion',
+    type: 'problem',
     docs: {
       description: 'Suggest `Image` must have `accessibilityLabel`.',
     },

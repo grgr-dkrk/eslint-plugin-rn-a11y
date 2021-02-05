@@ -5,7 +5,7 @@ import { createSchema } from '../../utils'
 
 export const rule: Rule.RuleModule = {
   meta: {
-    type: 'suggestion',
+    type: 'problem',
     docs: {
       description: 'Enforces limit number of alt text.',
     },

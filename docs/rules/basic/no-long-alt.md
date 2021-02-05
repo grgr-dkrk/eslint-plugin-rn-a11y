@@ -4,10 +4,6 @@
 
 Alt text that is too long will be ignored by some screen readers. Ideally, it should fit within 125 characters.
 
-## Type
-
-suggestion
-
 ## Options
 
 `limit: number`(optional): Set the maximum number of characters. default is `125`.

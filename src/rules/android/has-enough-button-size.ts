@@ -17,7 +17,7 @@ import {
 
 export const rule: Rule.RuleModule = {
   meta: {
-    type: 'suggestion',
+    type: 'problem',
     docs: {
       description: 'Enforces `Touchable` components have enough size.',
     },

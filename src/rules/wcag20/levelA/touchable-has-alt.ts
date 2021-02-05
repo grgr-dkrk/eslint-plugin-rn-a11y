@@ -11,7 +11,7 @@ import { Rule } from 'eslint'
 
 export const rule: Rule.RuleModule = {
   meta: {
-    type: 'suggestion',
+    type: 'problem',
     docs: {
       description:
         'Enforce `Touchable` components must have `accessible` and `accessibilityLabel` prop any children or self',
