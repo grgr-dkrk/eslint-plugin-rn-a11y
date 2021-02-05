@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.0...v1.5.1) (2021-02-05)
+
+
+### Bug Fixes
+
+* **rule:** change rule type from suggestion to problem ([77f425d](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/77f425da2074358c71c1e74735b5cb33eed6d63a))
+
 # [1.5.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.4.0...v1.5.0) (2021-02-05)
 
 
