@@ -40,7 +40,6 @@ export const rules = {
 }
 
 const basicRules = {
-  [`${PLUGIN_NAME}/has-accessibility-hint`]: 'error',
   [`${PLUGIN_NAME}/has-valid-accessibility-actions`]: 'error',
   [`${PLUGIN_NAME}/no-deprecated-props`]: 'error',
   [`${PLUGIN_NAME}/no-accessibilityLabel-for-testing`]: 'error',
