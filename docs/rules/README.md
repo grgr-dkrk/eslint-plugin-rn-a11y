@@ -9,6 +9,7 @@
 - [rn-a11y/no-accessibilityLabel-for-testing](./ios/no-accessibilityLabel-for-testing.md): Disallow set both `accessibilityLabel` and `testID` without `accessible`.
 - [rn-a11y/no-long-alt](./basic/no-long-alt.md): Enforces limit number of alt characters.
 - [rn-a11y/no-same-label-and-hint](./basic/no-same-label-and-hint.md): Prohibit the same sentence for `accessibilityLabel` and `accessibilityHint`.
+- [rn-a11y/image-has-accessible](./basic/image-has-accessible.md): Suggest `<Image />` have both `accessible` and `accessibilityLabel` props.
 
 ### Android
 
@@ -28,5 +29,4 @@ TBD
 These rules are experimental and unstable.  
 Only available with `plugin:rn-a11y/experimental`.
 
-- [rn-a11y/image-has-accessible](./ios/image-has-accessible.md): Enforce `<Image />` have both `accessible` and `accessibilityLabel` props.
 - [rn-a11y/has-enough-button-size](./android/has-enough-button-size.md): Enforces `Touchable` components have enough size.

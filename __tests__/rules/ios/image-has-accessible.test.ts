@@ -11,7 +11,15 @@ const ruleTester = new RuleTester(createTesterOptions())
 ruleTester.run('image-has-accessible', imageHasAccessible, {
   valid: [
     {
-      code: `<View><Image accessible accessibilityLabel="image" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      code: `<View><Image accessible accessibilityLabel="React Native Logo" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+    },
+    {
+      code: `<View><Image accessibilityLabel="React Native Logo" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      options: [
+        {
+          isSupportedIos: false,
+        },
+      ],
     },
   ],
   invalid: [
@@ -34,7 +42,7 @@ ruleTester.run('image-has-accessible', imageHasAccessible, {
       ],
     },
     {
-      code: `<View><Image accessibilityLabel="image" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      code: `<View><Image accessibilityLabel="React Native Logo" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
       errors: [
         {
           message: 'Image should has `accessible` and `accessibilityLabel`',
@@ -42,6 +50,50 @@ ruleTester.run('image-has-accessible', imageHasAccessible, {
         },
       ],
     },
+    // with options
+    {
+      code: `<View><Image source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message: 'Image should has `accessibilityLabel`',
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [
+        {
+          isSupportedIos: false,
+        },
+      ],
+    },
+    {
+      code: `<View><Image accessible source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message: 'Image should has `accessibilityLabel`',
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [
+        {
+          isSupportedIos: false,
+        },
+      ],
+    },
+    {
+      code: `<View><Image accessibilityLabel="" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message: 'Image should has `accessibilityLabel`',
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [
+        {
+          isSupportedIos: false,
+        },
+      ],
+    },
+    // with options and customComponents
     {
       code: `<View><MyImage accessibilityLabel="image" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
       errors: [
@@ -53,6 +105,21 @@ ruleTester.run('image-has-accessible', imageHasAccessible, {
       options: [
         {
           Image: ['MyImage'],
+        },
+      ],
+    },
+    {
+      code: `<View><MyImage accessibilityLabel="" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message: 'Image should has `accessibilityLabel`',
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [
+        {
+          Image: ['MyImage'],
+          isSupportedIos: false,
         },
       ],
     },
