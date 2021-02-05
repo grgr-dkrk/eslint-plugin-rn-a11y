@@ -47,6 +47,7 @@ const basicRules = {
   [`${PLUGIN_NAME}/no-nested-touchables`]: 'error',
   [`${PLUGIN_NAME}/no-long-alt`]: 'error',
   [`${PLUGIN_NAME}/no-same-label-and-hint`]: 'error',
+  [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
 }
 
 const androidRules = {}
@@ -61,7 +62,6 @@ const wcagRules = {
 }
 
 const experimentalRules = {
-  [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
   [`${PLUGIN_NAME}/has-enough-button-size`]: 'error',
 }
 
