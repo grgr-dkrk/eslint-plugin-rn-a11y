@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.3.0...v1.4.0) (2021-02-05)
+
+
+### Features
+
+* **rule:** add image-has-accessible-rule (moved from experimental) ([fa5ded1](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/fa5ded112f5c62aced564fd9cf926c7ca629c009))
+
 # [1.3.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.2.0...v1.3.0) (2021-02-04)
 
 
