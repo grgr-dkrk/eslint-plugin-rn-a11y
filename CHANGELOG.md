@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.1...v1.5.2) (2021-02-06)
+
+
+### Bug Fixes
+
+* **rules:** some rules move from error to warn ([b155cc5](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/b155cc5349c8e99b2053647c58308ef308b2c247))
+
 ## [1.5.1](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.0...v1.5.1) (2021-02-05)
 
 
