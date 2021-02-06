@@ -4,6 +4,10 @@
 
 It is recommended to use `accessibilityLabel` because the image will be recognizable by assistive technologies.
 
+## Type
+
+Warning
+
 ## Options
 
 `isSupportedIos: boolean` For iOS it is also desirable to have `accessible` as well, default is `true`.

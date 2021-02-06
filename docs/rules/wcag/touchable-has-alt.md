@@ -1,8 +1,12 @@
-# Enforce the `Touchable` component itself or its children to be accessible.
+# Suggest the `Touchable` component itself or its children to be accessible.
 
 `rn-a11y/touchable-has-alt`
 
 Manipulable elements must include labels.
+
+## Type
+
+Warning
 
 ## Examples
 

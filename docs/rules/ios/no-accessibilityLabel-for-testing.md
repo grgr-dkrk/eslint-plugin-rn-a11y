@@ -8,6 +8,10 @@ This prop is also used for reading and can confuse screen reader users.
 In the future, `testID` may also be supported on Android.  
 See: https://github.com/facebook/react-native/pull/29610
 
+## Type
+
+Error
+
 ## Examples
 
 ### Not Good

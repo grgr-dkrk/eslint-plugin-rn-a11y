@@ -7,6 +7,10 @@
 `Touchable` and `Plessable` should have at least a dimension of `48dp x 48dp` to be touchable.  
 see: https://developer.android.com/guide/topics/ui/accessibility/apps#large-controls
 
+## Type
+
+Warning
+
 ## Examples
 
 ### Not Good
