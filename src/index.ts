@@ -42,11 +42,11 @@ export const rules = {
 const basicRules = {
   [`${PLUGIN_NAME}/has-valid-accessibility-actions`]: 'error',
   [`${PLUGIN_NAME}/no-deprecated-props`]: 'error',
-  [`${PLUGIN_NAME}/no-accessibilityLabel-for-testing`]: 'error',
+  [`${PLUGIN_NAME}/no-accessibilityLabel-for-testing`]: 'warn',
   [`${PLUGIN_NAME}/no-nested-touchables`]: 'error',
-  [`${PLUGIN_NAME}/no-long-alt`]: 'error',
+  [`${PLUGIN_NAME}/no-long-alt`]: 'warn',
   [`${PLUGIN_NAME}/no-same-label-and-hint`]: 'error',
-  [`${PLUGIN_NAME}/image-has-accessible`]: 'error',
+  [`${PLUGIN_NAME}/image-has-accessible`]: 'warn',
 }
 
 const androidRules = {}
@@ -61,7 +61,7 @@ const wcagRules = {
 }
 
 const experimentalRules = {
-  [`${PLUGIN_NAME}/has-enough-button-size`]: 'error',
+  [`${PLUGIN_NAME}/has-enough-button-size`]: 'warn',
 }
 
 module.exports = {

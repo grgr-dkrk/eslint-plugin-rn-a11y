@@ -8,6 +8,10 @@ see: https://reactnative.dev/docs/accessibility#accessibilitystate
 
 This rule will also be deprecated, as the `@types/react-native` will also be modified.
 
+## Type
+
+Error
+
 ## Examples
 
 ### Fail

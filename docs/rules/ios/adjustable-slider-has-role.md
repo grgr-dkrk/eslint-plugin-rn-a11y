@@ -4,6 +4,10 @@
 
 The `accessibilityRole="adjustable"` role is required for iOS to recognize components that can be increased or decreased.
 
+## Type
+
+Error
+
 ## Examples
 
 ### Not Good

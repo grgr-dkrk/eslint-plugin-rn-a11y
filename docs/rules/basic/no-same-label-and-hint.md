@@ -5,6 +5,10 @@
 Normally, `accessibilityHint` is read after `accessibilityLabel`.  
 It is recommended not to specify the same description.
 
+## Type
+
+Error
+
 ## Examples
 
 ### Fail
