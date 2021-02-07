@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.3...v1.6.0) (2021-02-07)
+
+
+### Features
+
+* **rule:** add no-use-inverted-virtualizedList ([8df74b8](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/8df74b8614cbf0c4c09ec722bd248fb90c98245f))
+
 ## [1.5.3](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.2...v1.5.3) (2021-02-07)
 
 
