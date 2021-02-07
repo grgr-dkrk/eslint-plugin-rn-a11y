@@ -4,6 +4,8 @@
 
 It is recommended to use `accessibilityLabel` because the image will be recognizable by assistive technologies.
 
+**⚠️ NOTE:** This rule checks up to the parent of the target `Image`. It does not target ancestral elements to prevent nesting of elements with `accessible`.
+
 ## Type
 
 Warning
@@ -24,12 +26,32 @@ export const MaybeAccessibleComponent = () => {
 
 ```tsx
 export const MaybeAccessibleComponent = () => {
+  return (
+    <View>
+      <Image source={require('foo.jpg')} />
+    </View>
+  )
+}
+```
+
+```tsx
+export const MaybeAccessibleComponent = () => {
   // both `accessible` and `accessibilityLabel`, but no text.
   return <Image accessible accessibilityLabel="" source={require('foo.jpg')} />
 }
 ```
 
 ### Good
+
+```tsx
+export const MaybeAccessibleComponent = () => {
+  return (
+    <View accessible accessibilityLabel="Image of Foo.">
+      <Image source={require('foo.jpg')} />
+    </View>
+  )
+}
+```
 
 ```tsx
 export const MaybeAccessibleComponent = () => {

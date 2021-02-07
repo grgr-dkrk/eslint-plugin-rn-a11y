@@ -811,12 +811,13 @@ export type JSXClosingElement = {
   name: Node
 }
 
-export type JSXElement = {
-  // extends Node, Expression
-  children: JSXElement[]
-  closingElement?: JSXClosingElement
-  openingElement: JSXOpeningElement
-}
+export type JSXElement = Node &
+  Expression & {
+    children: JSXElement[]
+    closingElement?: JSXClosingElement
+    openingElement: JSXOpeningElement
+    parent?: JSXElement
+  }
 
 export type JSXEmptyExpression = {
   // extends Node, Expression
