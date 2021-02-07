@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.2...v1.5.3) (2021-02-07)
+
+
+### Bug Fixes
+
+* **rule:** image-has-accessible supported parent component [#15](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/issues/15) ([925ba08](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/925ba0859f14e1f99b64c6db17a4c4619ca7e69f))
+
 ## [1.5.2](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.1...v1.5.2) (2021-02-06)
 
 
