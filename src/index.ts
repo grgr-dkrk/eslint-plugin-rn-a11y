@@ -11,6 +11,7 @@ import {
   noNestedTouchables,
   noLongAlt,
   noSameLabelAndHint,
+  noUseInvertedVirtualizedList,
 } from './rules'
 
 const PLUGIN_NAME = 'rn-a11y'
@@ -37,6 +38,7 @@ export const rules = {
   'adjustable-slider-has-role': adjustableSliderHasRole,
   'no-long-alt': noLongAlt,
   'no-same-label-and-hint': noSameLabelAndHint,
+  'no-use-inverted-virtualizedList': noUseInvertedVirtualizedList,
 }
 
 const basicRules = {
@@ -47,6 +49,7 @@ const basicRules = {
   [`${PLUGIN_NAME}/no-long-alt`]: 'warn',
   [`${PLUGIN_NAME}/no-same-label-and-hint`]: 'error',
   [`${PLUGIN_NAME}/image-has-accessible`]: 'warn',
+  [`${PLUGIN_NAME}/no-use-inverted-virtualizedList`]: 'warn',
 }
 
 const androidRules = {}
