@@ -21,3 +21,7 @@ export const TOUCHABLE_ELEMENTS = [
   PRESSABLE,
 ]
 export const CUSTOM_TOUCHABLE = 'Touchable' as const
+
+// VirtualizedList
+export const FLAT_LIST = 'FlatList' as const
+export const SECTION_LIST = 'SectionList' as const

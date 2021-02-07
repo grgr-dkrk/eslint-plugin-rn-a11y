@@ -10,6 +10,7 @@
 - [rn-a11y/no-long-alt](./basic/no-long-alt.md): Suggest limit number of alt characters.
 - [rn-a11y/no-same-label-and-hint](./basic/no-same-label-and-hint.md): Prohibit the same sentence for `accessibilityLabel` and `accessibilityHint`.
 - [rn-a11y/image-has-accessible](./basic/image-has-accessible.md): Suggest `<Image />` have both `accessible` and `accessibilityLabel` props.
+- [rn-a11y/no-use-inverted-virtualizedList](./basic/no-use-inverted-virtualizedList.md): Disallow using `inverted` props on VirtualizedList.
 
 ### Android
 
