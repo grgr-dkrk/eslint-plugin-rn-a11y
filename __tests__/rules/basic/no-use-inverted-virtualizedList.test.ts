@@ -18,6 +18,23 @@ ruleTester.run(
       {
         code: `<SectionList sections={[{ title: section1, data: [{ id: '1', val: 'foo' }]}, { title: section2, data: [{ id: '1', val: 'bar' }]}, { title: section3, data: [{ id: '1', val: 'baz' }]}]} renderItem={(item) => (<View><Text>{item.val}</Text></View>)} keyExtractor={(item) => item.title} />`,
       },
+      // custom Components
+      {
+        code: `<MyFlatList data={[{ id: '1', val: 'foo' }, { id: '2', val: 'bar' }, { id: '3', val: 'baz' }]} renderItem={(item) => (<View><Text>{item.val}</Text></View>)} keyExtractor={(item) => item.id} />`,
+        options: [
+          {
+            FlatList: ['MyFlatList'],
+          },
+        ],
+      },
+      {
+        code: `<MySectionList sections={[{ title: section1, data: [{ id: '1', val: 'foo' }]}, { title: section2, data: [{ id: '1', val: 'bar' }]}, { title: section3, data: [{ id: '1', val: 'baz' }]}]} renderItem={(item) => (<View><Text>{item.val}</Text></View>)} keyExtractor={(item) => item.title} />`,
+        options: [
+          {
+            FlatList: ['MySectionList'],
+          },
+        ],
+      },
     ],
     invalid: [
       {
@@ -27,6 +44,25 @@ ruleTester.run(
       {
         code: `<SectionList sections={[{ title: section1, data: [{ id: '1', val: 'foo' }]}, { title: section2, data: [{ id: '1', val: 'bar' }]}, { title: section3, data: [{ id: '1', val: 'baz' }]}]} renderItem={(item) => (<View><Text>{item.val}</Text></View>)} keyExtractor={(item) => item.title} inverted />`,
         errors: [ERROR_MESSAGE],
+      },
+      // custom components
+      {
+        code: `<MyFlatList data={[{ id: '1', val: 'foo' }, { id: '2', val: 'bar' }, { id: '3', val: 'baz' }]} renderItem={(item) => (<View><Text>{item.val}</Text></View>)} keyExtractor={(item) => item.id} inverted/>`,
+        errors: [ERROR_MESSAGE],
+        options: [
+          {
+            FlatList: ['MyFlatList'],
+          },
+        ],
+      },
+      {
+        code: `<MySectionList sections={[{ title: section1, data: [{ id: '1', val: 'foo' }]}, { title: section2, data: [{ id: '1', val: 'bar' }]}, { title: section3, data: [{ id: '1', val: 'baz' }]}]} renderItem={(item) => (<View><Text>{item.val}</Text></View>)} keyExtractor={(item) => item.title} inverted />`,
+        errors: [ERROR_MESSAGE],
+        options: [
+          {
+            FlatList: ['MySectionList'],
+          },
+        ],
       },
     ],
   },
