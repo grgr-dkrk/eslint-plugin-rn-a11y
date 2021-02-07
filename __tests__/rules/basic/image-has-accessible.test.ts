@@ -14,6 +14,12 @@ ruleTester.run('image-has-accessible', imageHasAccessible, {
       code: `<View><Image accessible accessibilityLabel="React Native Logo" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
     },
     {
+      code: `<View accessible accessibilityLabel="React Native Logo"><Image source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+    },
+    {
+      code: `<TouchableOpacity accessible accessibilityRole="button" accessibilityLabel="Press Me" onPress={() => {}}><Image source={require('@expo/snack-static/react-native-logo.png')} /></TouchableOpacity>`,
+    },
+    {
       code: `<View><Image accessibilityLabel="React Native Logo" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
       options: [
         {
@@ -43,6 +49,33 @@ ruleTester.run('image-has-accessible', imageHasAccessible, {
     },
     {
       code: `<View><Image accessibilityLabel="React Native Logo" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message: 'Image should has `accessible` and `accessibilityLabel`',
+          type: 'JSXOpeningElement',
+        },
+      ],
+    },
+    {
+      code: `<View accessible><Image source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message: 'Image should has `accessible` and `accessibilityLabel`',
+          type: 'JSXOpeningElement',
+        },
+      ],
+    },
+    {
+      code: `<View accessible accessibilityLabel=""><Image source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
+      errors: [
+        {
+          message: 'Image should has `accessible` and `accessibilityLabel`',
+          type: 'JSXOpeningElement',
+        },
+      ],
+    },
+    {
+      code: `<View><Image accessible accessibilityLabel="" source={require('@expo/snack-static/react-native-logo.png')} /></View>`,
       errors: [
         {
           message: 'Image should has `accessible` and `accessibilityLabel`',
