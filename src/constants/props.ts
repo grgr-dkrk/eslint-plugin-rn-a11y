@@ -25,3 +25,6 @@ export const ON_ACCESSIBILITY_ESCAPE = 'onAccessibilityEscape' as const
 // Deprecated Props
 export const ACCESSIBILITY_COMPONENT_TYPE = 'accessibilityComponentType' as const
 export const ACCESSIBILITY_TRAITS = 'accessibilityTraits' as const
+
+// VirtualizedList Props
+export const INVERTED = 'inverted' as const
