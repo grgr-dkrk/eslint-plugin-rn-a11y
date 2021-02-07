@@ -59,12 +59,7 @@ export const MaybeAccessibleComponent = (props) => {
         </View>
       )}
       keyExtractor={(item) => item.id}
-      inverted
     />
   )
 }
-```
-
-```
-
 ```
