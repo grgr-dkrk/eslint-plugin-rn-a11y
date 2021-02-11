@@ -1,7 +1,10 @@
 import { Rule } from 'eslint'
-import { hasProp } from 'jsx-ast-utils'
+import { getProp, getPropValue, hasProp } from 'jsx-ast-utils'
 import { TEST_ID, ACCESSIBILITY_LABEL, ACCESSIBLE } from '../../constants'
 import { createSchema } from '../../utils'
+
+const ERROR_MESSAGE =
+  'Do not use `AccessibilityLabel` for only testing. This Prop conflicts with iOS. Did you set `testId` and `accessibilityLabel` to the same value?'
 
 export const rule: Rule.RuleModule = {
   meta: {
@@ -20,11 +23,15 @@ export const rule: Rule.RuleModule = {
         hasProp(node.attributes, ACCESSIBILITY_LABEL) &&
         !hasProp(node.attributes, ACCESSIBLE)
       ) {
-        context.report({
-          node,
-          message:
-            'Do not use `AccessibilityLabel` for only testing. This Prop conflicts with iOS.',
-        })
+        const accessibilityLabel = getPropValue(
+          getProp(node.attributes, ACCESSIBILITY_LABEL),
+        )
+        const testId = getPropValue(getProp(node.attributes, TEST_ID))
+        if (accessibilityLabel === testId)
+          context.report({
+            node,
+            message: ERROR_MESSAGE,
+          })
       }
     },
   }),

@@ -7,6 +7,8 @@ import { createTesterOptions } from '../../createTesterOptions'
 // -----------------------------------------------------------------------------
 
 const ruleTester = new RuleTester(createTesterOptions())
+const ERROR_MESSAGE =
+  'Do not use `AccessibilityLabel` for only testing. This Prop conflicts with iOS. Did you set `testId` and `accessibilityLabel` to the same value?'
 
 ruleTester.run(
   'no-accessibilityLabel-for-testing',
@@ -16,9 +18,12 @@ ruleTester.run(
       {
         code: `<View testID="forTestingComponent"></View>`,
       },
-      // TODO: This test isn't entirely correct because we haven't actually compared the contents of the strings.
       {
-        code: `<View accessible accessibilityLabel="View" testID="forTestingComponent"></View>`,
+        code: `<View accessible accessibilityLabel="View Component" testID="forTestingComponent"></View>`,
+      },
+      // `accessible` does not exist, but it passes because` testId` and `accessibilityLabel` are different
+      {
+        code: `<View accessibilityLabel="View Component" testID="forTestingComponent"></View>`,
       },
     ],
     invalid: [
@@ -26,8 +31,7 @@ ruleTester.run(
         code: `<View testID="forTestingComponent" accessibilityLabel="forTestingComponent"></View>`,
         errors: [
           {
-            message:
-              'Do not use `AccessibilityLabel` for only testing. This Prop conflicts with iOS.',
+            message: ERROR_MESSAGE,
             type: 'JSXOpeningElement',
           },
         ],
