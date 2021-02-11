@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.6.0...v1.6.1) (2021-02-11)
+
+
+### Bug Fixes
+
+* **rule:** no-accessibilityLabel-for-testing add a check to see if the same value is set ([6e870a2](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/6e870a2529697cfa4a8e9240475e5d9a65dac29b))
+
 # [1.6.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.5.3...v1.6.0) (2021-02-07)
 
 
