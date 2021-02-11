@@ -2,7 +2,7 @@
 
 `rn-a11y/no-accessibilityLabel-for-testing`
 
-Do not use `accessibilityLabel` prop for test labels.  
+Do not use `accessibilityLabel` prop for e2e testing.  
 This prop is also used for reading and can confuse screen reader users.
 
 In the future, `testID` may also be supported on Android.  
