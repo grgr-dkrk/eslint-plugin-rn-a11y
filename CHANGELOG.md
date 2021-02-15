@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.6.1...v1.7.0) (2021-02-15)
+
+
+### Features
+
+* **rule:** make touchable-has-alt check to role ([9d7ad53](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/9d7ad539ede5f39787b102dcd637159b845adadf))
+
 ## [1.6.1](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.6.0...v1.6.1) (2021-02-11)
 
 
