@@ -11,11 +11,14 @@ const ruleTester = new RuleTester(createTesterOptions())
 const ERROR_LABEL =
   'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessiblityLabel` for the `Touchable` Element to make it accessible.'
 
-const ERROR_ROLE =
-  'Does the button contain only `<Image />`? We recommend that you add `accessibilityRole = "imagebutton"` to Touchables.'
+const ERROR_IMAGE_BUTTON_ROLE =
+  'Does the button contain only `<Image />`? We recommend that add `accessibilityRole = "imagebutton"` to Touchables.'
 
-const experimentalOptions = {
-  __experimentalCheckRole: true,
+const ERROR_BUTTON_ROLE =
+  'We recommend that add `accessibilityRole = "button"` to Touchables.'
+
+const options = {
+  checkRole: true,
 }
 
 ruleTester.run('touchable-has-alt', touchableHasAlt, {
@@ -33,10 +36,15 @@ ruleTester.run('touchable-has-alt', touchableHasAlt, {
     {
       code: `<TouchableOpacity><Text></Text></TouchableOpacity>`,
     },
+    // button role
+    {
+      code: `<TouchableOpacity accessible accessibilityLabel="Click Me" accessibilityRole="button"><Text>Click</Text></TouchableOpacity>`,
+      options: [options],
+    },
     // imagebutton role
     {
       code: `<TouchableOpacity accessible accessibilityRole="imagebutton" accessibilityLabel="Click Me"><Image source={require('@expo/snack-static/react-native-logo.png')} /></TouchableOpacity>`,
-      options: [experimentalOptions],
+      options: [options],
     },
   ],
   invalid: [
@@ -63,28 +71,59 @@ ruleTester.run('touchable-has-alt', touchableHasAlt, {
         },
       ],
     },
+    // button role
+    {
+      code: `<TouchableOpacity accessible accessibilityLabel="Click Me"><Text>Click</Text></TouchableOpacity>`,
+      errors: [
+        {
+          message: ERROR_BUTTON_ROLE,
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [options],
+    },
+    {
+      code: `<TouchableOpacity accessible accessibilityLabel="Click Me" accessibilityRole="imagebutton"><Text>Click</Text></TouchableOpacity>`,
+      errors: [
+        {
+          message: ERROR_BUTTON_ROLE,
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [options],
+    },
     // imagebutton role
     {
       code: `<TouchableOpacity accessible accessibilityLabel="Click Me"><Image source={require('@expo/snack-static/react-native-logo.png')} /></TouchableOpacity>`,
       errors: [
         {
-          message: ERROR_ROLE,
+          message: ERROR_IMAGE_BUTTON_ROLE,
           type: 'JSXOpeningElement',
         },
       ],
-      options: [experimentalOptions],
+      options: [options],
+    },
+    {
+      code: `<TouchableOpacity accessible accessibilityLabel="Click Me" accessibilityRole="button"><Image source={require('@expo/snack-static/react-native-logo.png')} /></TouchableOpacity>`,
+      errors: [
+        {
+          message: ERROR_IMAGE_BUTTON_ROLE,
+          type: 'JSXOpeningElement',
+        },
+      ],
+      options: [options],
     },
     {
       code: `<MyButton accessible accessibilityLabel="Click Me"><Image source={require('@expo/snack-static/react-native-logo.png')} /></MyButton>`,
       errors: [
         {
-          message: ERROR_ROLE,
+          message: ERROR_IMAGE_BUTTON_ROLE,
           type: 'JSXOpeningElement',
         },
       ],
       options: [
         {
-          ...experimentalOptions,
+          ...options,
           Touchable: ['MyButton'],
         },
       ],
@@ -93,13 +132,13 @@ ruleTester.run('touchable-has-alt', touchableHasAlt, {
       code: `<MyButton accessible accessibilityLabel="Click Me"><MyPict source={require('@expo/snack-static/react-native-logo.png')} /></MyButton>`,
       errors: [
         {
-          message: ERROR_ROLE,
+          message: ERROR_IMAGE_BUTTON_ROLE,
           type: 'JSXOpeningElement',
         },
       ],
       options: [
         {
-          ...experimentalOptions,
+          ...options,
           Touchable: ['MyButton'],
           Image: ['MyPict'],
         },

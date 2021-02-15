@@ -8,6 +8,10 @@ Manipulable elements must include labels.
 
 Warning
 
+## Options
+
+`checkRole: boolean`(optional): Also check the role of `Touchable`. default is `false`.
+
 ## Examples
 
 ### Not Good
@@ -16,6 +20,26 @@ Warning
 export const MaybeAccessibleComponent = (props: Props) => {
   return (
     <TouchableOpacity
+      onPress={() => {
+        props.handleGoBack
+      }}
+    >
+      <Image source={require('arrow.png')} />
+    </TouchableOpacity>
+  )
+}
+```
+
+#### with `checkRole` option
+
+```tsx
+export const MaybeAccessibleComponent = (props: Props) => {
+  return (
+    <TouchableOpacity
+      accessible
+      accessibilityLabel="Go back"
+      accessibilityHint="Navigates to the previous screen"
+      // role is not found
       onPress={() => {
         props.handleGoBack
       }}
@@ -54,6 +78,26 @@ export const MaybeAccessibleComponent = (props: Props) => {
       }}
     >
       <Text>Go Back</Text>
+    </TouchableOpacity>
+  )
+}
+```
+
+#### with `checkRole` option
+
+```tsx
+export const MaybeAccessibleComponent = (props: Props) => {
+  return (
+    <TouchableOpacity
+      accessible
+      accessibilityLabel="Go back"
+      accessibilityHint="Navigates to the previous screen"
+      accessibilityRole="imagebutton" // must have the `imagebutton` role
+      onPress={() => {
+        props.handleGoBack
+      }}
+    >
+      <Image source={require('arrow.png')} />
     </TouchableOpacity>
   )
 }

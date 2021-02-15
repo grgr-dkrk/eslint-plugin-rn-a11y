@@ -9,6 +9,7 @@ import {
   ACCESSIBILITY_ROLE,
   ROLE_IMAGEBUTTON,
   IMAGE,
+  ROLE_BUTTON,
 } from '../../../constants'
 import { Rule } from 'eslint'
 
@@ -53,27 +54,38 @@ export const rule: Rule.RuleModule = {
             return
           }
         }
-        // If the only label was `Image`, then the `imagebutton` role is required.
-        if (context.options[0]?.__experimentalCheckRole === true) {
+        // Check to role on the Touchable
+        if (context.options[0]?.checkRole === true) {
           const childCount = parent.children?.length
-          if (
-            childCount === 1 &&
-            isTargetElement(
-              parent.children[0]?.openingElement,
-              context.options,
-              [IMAGE],
-              IMAGE,
-            )
-          ) {
-            const role = getPropValue(
-              getProp(node.attributes, ACCESSIBILITY_ROLE),
-            )
-            if (!role || role !== ROLE_IMAGEBUTTON) {
-              context.report({
-                node,
-                message:
-                  'Does the button contain only `<Image />`? We recommend that you add `accessibilityRole = "imagebutton"` to Touchables.',
-              })
+          const role = getPropValue(
+            getProp(node.attributes, ACCESSIBILITY_ROLE),
+          )
+          if (childCount === 1) {
+            if (
+              isTargetElement(
+                parent.children[0]?.openingElement,
+                context.options,
+                [IMAGE],
+                IMAGE,
+              )
+            ) {
+              // If the only label was `Image`, then the `imagebutton` role is required.
+              if (!role || role !== ROLE_IMAGEBUTTON) {
+                context.report({
+                  node,
+                  message:
+                    'Does the button contain only `<Image />`? We recommend that add `accessibilityRole = "imagebutton"` to Touchables.',
+                })
+              }
+            } else {
+              // If the only label was `Text`, then the `button` role is required.
+              if (!role || role !== ROLE_BUTTON) {
+                context.report({
+                  node,
+                  message:
+                    'We recommend that add `accessibilityRole = "button"` to Touchables.',
+                })
+              }
             }
           }
         }
