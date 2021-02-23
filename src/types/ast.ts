@@ -12,9 +12,7 @@ export type Comment = {
   start: number
 }
 
-export type Declaration = {
-  // extends Node
-}
+export type Declaration = Node
 
 export type Expression = Record<string, unknown>
 
@@ -27,7 +25,7 @@ export type Function = {
   defaults: Expression[]
   expression: boolean
   generator: boolean
-  params: Array<Pattern>
+  params: Pattern[]
   rest?: Identifier
   returnType?: TypeAnnotation
   typeParameters?: TypeParameterDeclaration
@@ -35,14 +33,14 @@ export type Function = {
 
 export type Node = {
   end: number
-  innerComments?: Array<Comment>
-  leadingComments?: Array<Comment>
+  innerComments?: Comment[]
+  leadingComments?: Comment[]
   loc: {
     end: { column: number; line: number }
     start: { column: number; line: number }
   }
   start: number
-  trailingComments?: Array<Comment>
+  trailingComments?: Comment[]
 }
 
 export type Pattern = Record<string, unknown>
@@ -53,13 +51,11 @@ export type Type = Record<string, unknown>
 
 // Concrete Types. Nothing can extend these.
 
-export type CommentLine = {
-  // extends Comment
+export type CommentLine = Comment & {
   value: string
 }
 
-export type CommentBlock = {
-  // extends Comment
+export type CommentBlock = Comment & {
   value: string
 }
 
@@ -70,15 +66,15 @@ export type ArrayExpression<T = Node> = Node &
     elements: T[]
   }
 
-export type ArrayPattern = {
-  // extends Node, Pattern
-  elements: Node[]
-  typeAnnotation?: TypeAnnotation
-}
+export type ArrayPattern = Node &
+  Pattern & {
+    elements: Node[]
+    typeAnnotation?: TypeAnnotation
+  }
 
-export type ArrowFunctionExpression = {
-  // extends Node, Function
-  body: Node // BlockStatement | Expression,
+export type ArrowFunctionExpression = Node & {
+  // TODO: extends Function
+  body: BlockStatement | Expression
   id?: Identifier
 }
 
@@ -96,24 +92,24 @@ type AssignmentOperator =
   | '^='
   | '&='
 
-export type AssignmentExpression = {
-  // extends Node, Expression
-  left: Pattern
-  operator: AssignmentOperator
-  right: Expression
-}
+export type AssignmentExpression = Node &
+  Expression & {
+    left: Pattern
+    operator: AssignmentOperator
+    right: Expression
+  }
 
-export type AssignmentPattern = {
-  // extends Node, Pattern
-  left: Pattern
-  right: Expression
-}
+export type AssignmentPattern = Node &
+  Pattern & {
+    left: Pattern
+    right: Expression
+  }
 
-export type AwaitExpression = {
-  // extends Node, Expression
-  all: boolean
-  argument?: Expression
-}
+export type AwaitExpression = Node &
+  Expression & {
+    all: boolean
+    argument?: Expression
+  }
 
 type BinaryOperator =
   | '=='
@@ -139,90 +135,88 @@ type BinaryOperator =
   | 'instanceof'
   | '..'
 
-export type BinaryExpression = {
-  // extends Node, Expression
-  left: Expression
-  operator: BinaryOperator
-  right: Expression
-}
+export type BinaryExpression = Node &
+  Expression & {
+    left: Expression
+    operator: BinaryOperator
+    right: Expression
+  }
 
 // TODO: What is this?
-export type BindExpression = {
-  // extends Node, Expression
-  callee: Node
-  object: Node
-}
+export type BindExpression = Node &
+  Expression & {
+    callee: Node
+    object: Node
+  }
 
-export type BlockStatement = {
-  // extends Node, Statement
-  body: Array<Statement>
-}
+export type BlockStatement = Node &
+  Statement & {
+    body: Statement[]
+  }
 
-export type BreakStatement = {
-  // extends Node, Statement
-  label?: Identifier
-}
+export type BreakStatement = Node &
+  Statement & {
+    label?: Identifier
+  }
 
-export type CallExpression = {
-  // extends Node, Expression
-  arguments: Node[] // Array<Expression | SpreadElement>
-  callee: Expression
-}
+export type CallExpression = Node &
+  Expression & {
+    arguments: Expression[] | SpreadElement[]
+    callee: Expression
+  }
 
-export type CatchClause = {
-  // extends Node
+export type CatchClause = Node & {
   body: BlockStatement
   param: Pattern
 }
 
-export type ClassBody = {
-  // extends Node, Declaration
-  body: Node[]
-}
+export type ClassBody = Node &
+  Declaration & {
+    body: Node[]
+  }
 
-export type ClassDeclaration = {
-  // extends Node, Declaration
-  body: ClassBody
-  id?: Identifier
-  superClass?: Expression
+export type ClassDeclaration = Node &
+  Declaration & {
+    body: ClassBody
+    id?: Identifier
+    superClass?: Expression
 
-  // TODO: Get proper types.
-  decorators: any
-  superTypeParameters: any
-  typeParameters: any
+    // TODO: Get proper types.
+    decorators: any
+    superTypeParameters: any
+    typeParameters: any
 
-  // TODO: Recast parse error.
-  // 'implements': Array<ClassImplements>,
-}
+    // TODO: Recast parse error.
+    // 'implements': Array<ClassImplements>,
+  }
 
-export type ClassExpression = {
-  // extends Node, Expression
-  body: ClassBody
-  id?: Identifier
-  superClass?: Expression
+export type ClassExpression = Node &
+  Expression & {
+    body: ClassBody
+    id?: Identifier
+    superClass?: Expression
 
-  // TODO: Get proper types.
-  decorators: any
-  superTypeParameters: any
-  typeParameters: any
+    // TODO: Get proper types.
+    decorators: any
+    superTypeParameters: any
+    typeParameters: any
 
-  // TODO: Recast parse error.
-  // 'implements': Array<ClassImplements>,
-}
+    // TODO: Recast parse error.
+    // 'implements': Array<ClassImplements>,
+  }
 
-export type ComprehensionBlock = {
-  // extends Node
+export type ComprehensionBlock = Node & {
   each: boolean
   left: Pattern
   right: Expression
 }
 
-export type ComprehensionExpression = {
-  // extends Node, Expression
-  body: Expression
-  blocks: Array<ComprehensionBlock>
-  filter?: Expression
-}
+export type ComprehensionExpression = Node &
+  Expression & {
+    body: Expression
+    blocks: ComprehensionBlock[]
+    filter?: Expression
+  }
 
 export type ConditionalExpression = Node &
   Expression & {
@@ -231,87 +225,84 @@ export type ConditionalExpression = Node &
     test: Expression
   }
 
-export type ContinueStatement = {
-  // extends Node, Statement
-  label?: Identifier
-}
+export type ContinueStatement = Node &
+  Statement & {
+    label?: Identifier
+  }
 
 // TODO: Make this correct.
-export type Decorator = {
-  // extends Node
+export type Decorator = Node & {
   expression: Expression
 }
 
-export type DebuggerStatement = {
-  // extends Node
-}
+export type DebuggerStatement = Node
 
-export type DoWhileStatement = {
-  // extends Node, Statement
-  body: Statement
-  test: Expression
-}
+export type DoWhileStatement = Node &
+  Statement & {
+    body: Statement
+    test: Expression
+  }
 
 // TODO: Make this correct.
-export type DoExpression = {
-  // extends Node, Expression
-  body: Statement
-}
+export type DoExpression = Node &
+  Expression & {
+    body: Statement
+  }
 
-export type EmptyStatement = {
-  // extends Node, Statement
-}
+export type EmptyStatement = Node & Statement
 
-export type ExpressionStatement = {
-  // extends Node, Statement
-  expression: Expression
-}
+export type ExpressionStatement = Node &
+  Statement & {
+    expression: Expression
+  }
 
-export type File = {
-  // extends Node
+export type File = Node & {
   program: Program
 }
 
-export type ForInStatement = {
-  // extends Node, Statement
-  body: Statement
-  left: Node // VariableDeclaration | Expression
-  right: Expression
-}
+export type ForInStatement = Node &
+  Statement & {
+    body: Statement
+    left: VariableDeclaration | Expression
+    right: Expression
+  }
 
 // TODO: Make this correct.
-export type ForOfStatement = {
-  // extends Node, Statement
-  body: Statement
-  left: Node
-  right: Expression
-}
+export type ForOfStatement = Node &
+  Statement & {
+    body: Statement
+    left: Node
+    right: Expression
+  }
 
-export type ForStatement = {
-  // extends Node, Statement
-  init?: Node // ?(VariableDeclaration | Expression)
-  test?: Expression
-  update?: Expression
-  body: Statement
-}
+export type ForStatement = Node &
+  Statement & {
+    init?: VariableDeclaration | Expression
+    test?: Expression
+    update?: Expression
+    body: Statement
+  }
 
-export type FunctionDeclaration = {
-  // extends Node, Function, Declaration
-  body: BlockStatement
-  id: Identifier
-}
+export type FunctionDeclaration = Node &
+  Declaration & {
+    // TODO: extends Function
+    body: BlockStatement
+    id: Identifier
+  }
 
-export type FunctionExpression = {
-  // extends Node, Expression, Function
-  body: BlockStatement
-  id?: Identifier
-}
+export type FunctionExpression = Node &
+  Expression & {
+    // TODO: extends Function
+    body: BlockStatement
+    id?: Identifier
+  }
 
-export type Identifier = {
-  // extends Node, Expression, Pattern
-  name: string
-  typeAnnotation?: TypeAnnotation
-}
+export type Identifier = Node &
+  Expression &
+  Pattern & {
+    name: string
+    typeAnnotation?: TypeAnnotation
+  }
 
 export type IfStatement = Node &
   Statement & {
@@ -331,7 +322,6 @@ export type ImportNamespaceSpecifier = Node & {
 }
 
 export type ImportDeclaration = Node & {
-  // extends Node
   specifiers: Node[]
   source: Literal
 }
@@ -367,7 +357,7 @@ export type MemberExpression = Node &
   Expression & {
     computed: boolean
     object: Expression
-    property: Node // Identifier | Expression
+    property: Identifier | Expression
   }
 
 // TODO: Make this correct.
@@ -379,18 +369,18 @@ export type MetaProperty = Node & {
 export type MethodDefinition = Node &
   Declaration & {
     computed: boolean
-    key: Node // Literal | Identifier | Expression
+    key: Literal | Identifier | Expression
     kind: 'constructor' | 'method' | 'get' | 'set'
     static: boolean
     value: FunctionExpression
 
     // TODO: Make this correct.
-    decorators?: Array<Decorator>
+    decorators?: Decorator[]
   }
 
 export type NewExpression = Node &
   Expression & {
-    arguments: Node[] // Array<Expression | SpreadElement>
+    arguments: Expression[] | SpreadElement[]
     callee: Expression
   }
 
@@ -398,12 +388,13 @@ export type Noop = Node
 
 export type ObjectExpression = Node &
   Expression & {
-    properties: Node[] // Array<Property | SpreadProperty>
+    properties: Property[] | SpreadProperty[]
   }
 
 export type ObjectPattern = Node &
   Pattern & {
-    properties: Node[] // Array<PropertyPattern | Property | SpreadProperty>
+    // TODO: Support PropertyPattern[]
+    properties: Property[] | SpreadProperty[]
     typeAnnotation?: TypeAnnotation
   }
 
@@ -413,14 +404,14 @@ export type Program = Node & {
 
 export type Property = Node & {
   computed: boolean
-  key: Node // Literal | Identifier | Expression
+  key: Literal | Identifier | Expression
   kind: 'init' | 'get' | 'set'
   method: boolean
   shorthand: boolean
-  value: Node // Expression | Pattern
+  value: Expression | Pattern
 
   // TODO: Make this correct.
-  decorators?: Array<Decorator>
+  decorators?: Decorator[]
 }
 
 export type RestElement = Node &
@@ -436,7 +427,7 @@ export type ReturnStatement = Node &
 
 export type SequenceExpression = Node &
   Expression & {
-    expression: Array<Expression>
+    expression: Expression[]
   }
 
 export type SpreadElement = Node & {
@@ -450,162 +441,147 @@ export type SpreadProperty = Node & {
 export type Super = Node
 
 export type SwitchCase = Node & {
-  consequent: Array<Statement>
+  consequent: Statement[]
   test?: Expression
 }
 
 export type SwitchStatement = Node &
   Statement & {
-    cases: Array<SwitchCase>
+    cases: SwitchCase[]
     discriminant: Expression
     lexical: boolean
   }
 
-export type TaggedTemplateExpression = {
-  // extends Node, Expression
-  quasi: TemplateLiteral
-  tag: Expression
-}
+export type TaggedTemplateExpression = Node &
+  Expression & {
+    quasi: TemplateLiteral
+    tag: Expression
+  }
 
-export type TemplateElement = {
-  // extends Node
+export type TemplateElement = Node & {
   tail: boolean
   value: { cooked: string; raw: string }
 }
 
-export type TemplateLiteral = {
-  // extends Node, Expression
-  expressions: Array<Expression>
-  quasis: Array<TemplateElement>
-}
+export type TemplateLiteral = Node &
+  Expression & {
+    expressions: Expression[]
+    quasis: TemplateElement[]
+  }
 
-export type ThisExpression = {
-  // extends Node, Expression
-}
+export type ThisExpression = Node & Expression
 
-export type ThrowStatement = {
-  // extends Node, Statement
-  argument: Expression
-}
+export type ThrowStatement = Node &
+  Statement & {
+    argument: Expression
+  }
 
-export type TryStatement = {
-  // extends Node, Statement
-  block: BlockStatement
-  finalizer?: BlockStatement
-  guardedHandlers: Array<CatchClause>
-  handler?: CatchClause
-  handlers?: Array<CatchClause>
-}
+export type TryStatement = Node &
+  Statement & {
+    block: BlockStatement
+    finalizer?: BlockStatement
+    guardedHandlers: CatchClause[]
+    handler?: CatchClause
+    handlers?: CatchClause[]
+  }
 
 type UnaryOperator = '-' | '+' | '!' | '~' | 'typeof' | 'void' | 'delete'
 
-export type UnaryExpression = {
-  // extends Node, Expression
-  argument: Expression
-  operator: UnaryOperator
-  prefix: true
-}
+export type UnaryExpression = Node &
+  Expression & {
+    argument: Expression
+    operator: UnaryOperator
+    prefix: true
+  }
 
 type UpdateOperator = '++' | '--'
 
-export type UpdateExpression = {
-  // extends Node, Expression
-  argument: Expression
-  operator: UpdateOperator
-  prefix: boolean
-}
+export type UpdateExpression = Node &
+  Expression & {
+    argument: Expression
+    operator: UpdateOperator
+    prefix: boolean
+  }
 
-export type VariableDeclaration = {
-  // extends Node, Declaration
-  declarations: Array<VariableDeclarator>
-  kind: 'var' | 'let' | 'const'
-}
+export type VariableDeclaration = Node &
+  Declaration & {
+    declarations: VariableDeclarator[]
+    kind: 'var' | 'let' | 'const'
+  }
 
-export type VariableDeclarator = {
-  // extends Node
+export type VariableDeclarator = Node & {
   id: Pattern
   init?: Expression
 }
 
-export type WhileStatement = {
-  // extends Node, Statement
-  body: Statement
-  test: Expression
-}
+export type WhileStatement = Node &
+  Statement & {
+    body: Statement
+    test: Expression
+  }
 
-export type WithStatement = {
-  // extends Node, Statement
-  body: Statement
-  object: Expression
-}
+export type WithStatement = Node &
+  Statement & {
+    body: Statement
+    object: Expression
+  }
 
-export type YieldExpression = {
-  // extends Node, Expression
-  argument?: Expression
-  delegate: boolean
-}
+export type YieldExpression = Node &
+  Expression & {
+    argument?: Expression
+    delegate: boolean
+  }
 
 // TODO: Make this correct.
-export type ExportAllDeclaration = {
-  // extends Node
+export type ExportAllDeclaration = Node & {
   exported: Node
   source: Node
 }
 
 // TODO: Make this correct.
-export type ExportDefaultDeclaration = {
-  // extends Node
+export type ExportDefaultDeclaration = Node & {
   declaration: Node
 }
 
 // TODO: Make this correct.
-export type ExportNamedDeclaration = {
-  // extends Node
+export type ExportNamedDeclaration = Node & {
   declaration: Node
   source: Literal
   specifiers: Node[]
 }
 
 // TODO: Make this correct.
-export type ExportDefaultSpecifier = {
-  // extends Node
+export type ExportDefaultSpecifier = Node & {
   exported: Node
 }
 
 // TODO: Make this correct.
-export type ExportNamespaceSpecifier = {
-  // extends Node
+export type ExportNamespaceSpecifier = Node & {
   exported: Node
 }
 
 // TODO: Make this correct.
-export type ExportSpecifier = {
-  // extends Node
+export type ExportSpecifier = Node & {
   local: Node
   exported: Node
 }
 
-export type AnyTypeAnnotation = {
-  // extends Node, Type
-}
+export type AnyTypeAnnotation = Node & Type
 
-export type ArrayTypeAnnotation = {
-  // extends Node, Type
-  elementType: Type
-}
+export type ArrayTypeAnnotation = Node &
+  Type & {
+    elementType: Type
+  }
 
-export type BooleanLiteralTypeAnnotation = {
-  // extends Node, Type
-  raw: string
-  value: boolean
-}
+export type BooleanLiteralTypeAnnotation = Node &
+  Type & {
+    raw: string
+    value: boolean
+  }
 
-export type BooleanTypeAnnotation = {
-  // extends Node, Type
-}
+export type BooleanTypeAnnotation = Node & Type
 
-export type ClassImplements = {
-  // extends Node
+export type ClassImplements = Node & {
   id: Identifier
   typeParameters?: TypeParameterInstantiation
 
@@ -613,201 +589,181 @@ export type ClassImplements = {
   superClass?: Expression
 }
 
-export type ClassProperty = {
-  // extends Node, Declaration
-  computed: boolean
-  key: Node // Literal | Identifier | Expression
-  static: boolean
-  typeAnnotation?: TypeAnnotation
-  value?: Expression
+export type ClassProperty = Node &
+  Declaration & {
+    computed: boolean
+    key: Literal | Identifier | Expression
+    static: boolean
+    typeAnnotation?: TypeAnnotation
+    value?: Expression
 
-  // TODO: Make this correct.
-  decorators: Array<Decorator>
-}
+    // TODO: Make this correct.
+    decorators: Decorator[]
+  }
 
-export type DeclareClass = {
-  // extends Node, Statement
-  body: ObjectTypeAnnotation
-  extends: Array<InterfaceExtends>
-  id: Identifier
-  typeParameters?: TypeParameterDeclaration
-}
-
-// TODO: Make this correct.
-export type DeclareFunction = {
-  // extends Node, Statement
-  id: Identifier
-}
-
-export type DeclareModule = {
-  // extends Node, Statement
-  body: BlockStatement
-  id: Node // Identifier | Literal
-}
+export type DeclareClass = Node &
+  Statement & {
+    body: ObjectTypeAnnotation
+    extends: InterfaceExtends[]
+    id: Identifier
+    typeParameters?: TypeParameterDeclaration
+  }
 
 // TODO: Make this correct.
-export type DeclareVariable = {
-  // extends Node, Statement
-  id: Identifier
-}
+export type DeclareFunction = Node &
+  Statement & {
+    id: Identifier
+  }
 
-export type FunctionTypeAnnotation = {
-  // extends Node, Type
-  params: Array<FunctionTypeParam>
-  rest?: FunctionTypeParam
-  returnType: Type
-  typeParameters?: TypeParameterDeclaration
-}
+export type DeclareModule = Node &
+  Statement & {
+    body: BlockStatement
+    id: Identifier | Literal
+  }
 
-export type FunctionTypeParam = {
-  // extends Node
+// TODO: Make this correct.
+export type DeclareVariable = Node &
+  Statement & {
+    id: Identifier
+  }
+
+export type FunctionTypeAnnotation = Node &
+  Type & {
+    params: FunctionTypeParam[]
+    rest?: FunctionTypeParam
+    returnType: Type
+    typeParameters?: TypeParameterDeclaration
+  }
+
+export type FunctionTypeParam = Node & {
   name: Identifier
   optional: boolean
   typeAnnotation: Type
 }
 
-export type GenericTypeAnnotation = {
-  // extends Node, Type
-  id: Node // Identifier | QualifiedTypeIdentifier
-  typeParameters?: TypeParameterInstantiation
-}
+export type GenericTypeAnnotation = Node &
+  Type & {
+    id: Identifier | QualifiedTypeIdentifier
+    typeParameters?: TypeParameterInstantiation
+  }
 
-export type InterfaceExtends = {
-  // extends Node
+export type InterfaceExtends = Node & {
   id: Identifier
   typeParameters?: TypeParameterInstantiation
 }
 
-export type InterfaceDeclaration = {
-  // extends Node, Statement
-  body: ObjectTypeAnnotation
-  extends: Array<InterfaceExtends>
-  id: Identifier
-  typeParameters?: TypeParameterDeclaration
-}
+export type InterfaceDeclaration = Node &
+  Statement & {
+    body: ObjectTypeAnnotation
+    extends: InterfaceExtends[]
+    id: Identifier
+    typeParameters?: TypeParameterDeclaration
+  }
 
-export type IntersectionTypeAnnotation = {
-  // extends Node, Type
-  types: Array<Type>
-}
+export type IntersectionTypeAnnotation = Node &
+  Type & {
+    types: Type[]
+  }
 
-export type MixedTypeAnnotation = {
-  // extends Node, Type
-}
+export type MixedTypeAnnotation = Node & Type
 
-export type NullableTypeAnnotation = {
-  // extends Node, Type
-  typeAnnotation: Type
-}
+export type NullableTypeAnnotation = Node &
+  Type & {
+    typeAnnotation: Type
+  }
 
-export type NumberLiteralTypeAnnotation = {
-  // extends Node, Type
-  raw: string
-  value: number
-}
+export type NumberLiteralTypeAnnotation = Node &
+  Type & {
+    raw: string
+    value: number
+  }
 
-export type NumberTypeAnnotation = {
-  // extends Node, Type
-}
+export type NumberTypeAnnotation = Node & Type
 
-export type StringLiteralTypeAnnotation = {
-  // extends Node, Type
-  raw: string
-  value: string
-}
+export type StringLiteralTypeAnnotation = Node &
+  Type & {
+    raw: string
+    value: string
+  }
 
-export type StringTypeAnnotation = {
-  // extends Node, Type
-}
+export type StringTypeAnnotation = Node & Type
 
-export type TupleTypeAnnotation = {
-  // extends Node, Type
-  types: Array<Type>
-}
+export type TupleTypeAnnotation = Node &
+  Type & {
+    types: Type[]
+  }
 
-export type TypeofTypeAnnotation = {
-  // extends Node
+export type TypeofTypeAnnotation = Node & {
   argument: Type
 }
 
-export type TypeAlias = {
-  // extends Node, Statement
-  id: Identifier
-  right: Type
-  typeParameters?: TypeParameterDeclaration
-}
+export type TypeAlias = Node &
+  Statement & {
+    id: Identifier
+    right: Type
+    typeParameters?: TypeParameterDeclaration
+  }
 
-export type TypeAnnotation = {
-  // extends Node
+export type TypeAnnotation = Node & {
   typeAnnotation: Type
 }
 
-export type TypeCastExpression = {
-  // extends Node, Expression
-  expression: Expression
-  typeAnnotation: TypeAnnotation
+export type TypeCastExpression = Node &
+  Expression & {
+    expression: Expression
+    typeAnnotation: TypeAnnotation
+  }
+
+export type TypeParameterDeclaration = Node & {
+  params: Identifier[]
 }
 
-export type TypeParameterDeclaration = {
-  // extends Node
-  params: Array<Identifier>
+export type TypeParameterInstantiation = Node & {
+  params: Type[]
 }
 
-export type TypeParameterInstantiation = {
-  // extends Node
-  params: Array<Type>
-}
+export type ObjectTypeAnnotation = Node &
+  Type & {
+    callProperties: ObjectTypeCallProperty[]
+    indexers: ObjectTypeIndexer[]
+    properties: ObjectTypeProperty[]
+  }
 
-export type ObjectTypeAnnotation = {
-  // extends Node, Type
-  callProperties: Array<ObjectTypeCallProperty>
-  indexers: Array<ObjectTypeIndexer>
-  properties: Array<ObjectTypeProperty>
-}
-
-export type ObjectTypeCallProperty = {
-  // extends Node
+export type ObjectTypeCallProperty = Node & {
   static: boolean
   value: FunctionTypeAnnotation
 }
 
-export type ObjectTypeIndexer = {
-  // extends Node
+export type ObjectTypeIndexer = Node & {
   id: Identifier
   key: Type
   value: Type
 }
 
-export type ObjectTypeProperty = {
-  // extends Node
-  key: Node // Literal | Identifier
+export type ObjectTypeProperty = Node & {
+  key: Literal | Identifier
   optional: boolean
   value: Type
 }
 
-export type QualifiedTypeIdentifier = {
-  // extends Node
+export type QualifiedTypeIdentifier = Node & {
   id: Identifier
-  qualification: Node // Identifier | QualifiedTypeIdentifier
+  qualification: Identifier | QualifiedTypeIdentifier
 }
 
-export type UnionTypeAnnotation = {
-  // extends Node, Type
-  types: Array<Type>
-}
+export type UnionTypeAnnotation = Node &
+  Type & {
+    types: Type[]
+  }
 
-export type VoidTypeAnnotation = {
-  // extends Node, Type
-}
+export type VoidTypeAnnotation = Node & Type
 
-export type JSXAttribute<T = Literal> = {
-  // extends Node
-  name: Node // JSXIdentifier | JSXNamespacedName
+export type JSXAttribute<T = Literal> = Node & {
+  name: JSXIdentifier | JSXNamespacedName
   value?: T
 }
 
-export type JSXClosingElement = {
-  // extends Node
+export type JSXClosingElement = Node & {
   name: Node
 }
 
@@ -819,9 +775,7 @@ export type JSXElement = Node &
     parent?: JSXElement
   }
 
-export type JSXEmptyExpression = {
-  // extends Node, Expression
-}
+export type JSXEmptyExpression = Node & Expression
 
 export type JSXExpressionContainer = Node &
   Expression & {
@@ -835,7 +789,7 @@ export type JSXIdentifier = Node & {
 export type JSXMemberExpression = Node &
   Expression & {
     computed: boolean
-    object: Node // JSXIdentifier | JSXMemberExpression
+    object: JSXIdentifier | JSXMemberExpression
     property: JSXIdentifier
   }
 
@@ -855,7 +809,6 @@ export type JSXOpeningElement = Node & {
   parent: JSXElement
 }
 
-export type JSXSpreadAttribute = {
-  // extends Node
+export type JSXSpreadAttribute = Node & {
   argument: Expression
 }
