@@ -28,6 +28,15 @@ ruleTester.run(
     ],
     invalid: [
       {
+        code: `<View accessible testID="forTestingComponent" accessibilityLabel="forTestingComponent"></View>`,
+        errors: [
+          {
+            message: ERROR_MESSAGE,
+            type: 'JSXOpeningElement',
+          },
+        ],
+      },
+      {
         code: `<View testID="forTestingComponent" accessibilityLabel="forTestingComponent"></View>`,
         errors: [
           {

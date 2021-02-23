@@ -1,6 +1,6 @@
 import { Rule } from 'eslint'
 import { getProp, getPropValue, hasProp } from 'jsx-ast-utils'
-import { TEST_ID, ACCESSIBILITY_LABEL, ACCESSIBLE } from '../../constants'
+import { TEST_ID, ACCESSIBILITY_LABEL } from '../../constants'
 import { createSchema } from '../../utils'
 
 const ERROR_MESSAGE =
@@ -11,7 +11,7 @@ export const rule: Rule.RuleModule = {
     type: 'problem',
     docs: {
       description:
-        'Disallow set `AccessibilityLabel` and `testID` both without `Accessible`.',
+        'Disallow set same label on `AccessibilityLabel` and `testID` both.',
     },
     schema: createSchema(),
   },
@@ -20,8 +20,7 @@ export const rule: Rule.RuleModule = {
     JSXOpeningElement: (node) => {
       if (
         hasProp(node.attributes, TEST_ID) &&
-        hasProp(node.attributes, ACCESSIBILITY_LABEL) &&
-        !hasProp(node.attributes, ACCESSIBLE)
+        hasProp(node.attributes, ACCESSIBILITY_LABEL)
       ) {
         const accessibilityLabel = getPropValue(
           getProp(node.attributes, ACCESSIBILITY_LABEL),

@@ -20,6 +20,7 @@ Error
 export const MaybeAccessibleComponent = () => {
   return (
     <ScrollView
+      // accessibilityLabel and testID is same.
       accessibilityLabel="maybeAccessibleLabel"
       testID="maybeAccessibleLabel"
     >
@@ -37,6 +38,21 @@ export const MaybeAccessibleComponent = () => {
     <ScrollView testID="maybeAccessibleLabel">
       <Text>Text</Text>
     </ScrollView>
+  )
+}
+```
+
+```tsx
+export const MaybeAccessibleComponent = () => {
+  return (
+    <TouchableOpacity
+      accessible
+      accessibilityRole="button"
+      accessibilityLabel="Text"
+      testID="maybeAccessibleLabel"
+    >
+      <Text>Text</Text>
+    </TouchableOpacity>
   )
 }
 ```
