@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.7.0...v1.7.1) (2021-02-23)
+
+
+### Bug Fixes
+
+* **rule:** no-accessibilityLabel-for-testing is no longer check on `accessible` props ([639fd36](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/639fd365af76382e1bc274a2bfc7a4473e06bc92))
+
 # [1.7.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.6.1...v1.7.0) (2021-02-15)
 
 
