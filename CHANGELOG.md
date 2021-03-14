@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.7.1...v1.7.2) (2021-03-14)
+
+
+### Bug Fixes
+
+* update dependencies ([a76cc91](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/a76cc9199b465de9d4a288883436ea287ec90b2d))
+
 ## [1.7.1](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.7.0...v1.7.1) (2021-02-23)
 
 
