@@ -11,6 +11,7 @@ export const ACCESSIBILITY_ACTIONS = 'accessibilityActions' as const
 export const ON_ACCESSIBILITY_ACTION = 'onAccessibilityAction' as const
 export const TEST_ID = 'testID' as const
 export const STYLE = 'style' as const
+export const PLACEHOLDER = 'placeholder' as const
 
 // Android Props
 export const ACCESSIBILITY_LIVE_REGION = 'accessibilityLiveRegion' as const

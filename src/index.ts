@@ -12,6 +12,7 @@ import {
   noLongAlt,
   noSameLabelAndHint,
   noUseInvertedVirtualizedList,
+  warnTextInputLabel,
 } from './rules'
 
 const PLUGIN_NAME = 'rn-a11y'
@@ -39,6 +40,7 @@ export const rules = {
   'no-long-alt': noLongAlt,
   'no-same-label-and-hint': noSameLabelAndHint,
   'no-use-inverted-virtualizedList': noUseInvertedVirtualizedList,
+  'warn-textinput-label': warnTextInputLabel,
 }
 
 const basicRules = {
@@ -52,7 +54,9 @@ const basicRules = {
   [`${PLUGIN_NAME}/no-use-inverted-virtualizedList`]: 'warn',
 }
 
-const androidRules = {}
+const androidRules = {
+  [`${PLUGIN_NAME}/warn-textinput-label`]: 'warn',
+}
 
 const iOSRules = {
   [`${PLUGIN_NAME}/accessible-image-has-label`]: 'error',
