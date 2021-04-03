@@ -49,7 +49,7 @@ export const rule: Rule.RuleModule = {
             context.report({
               node,
               message:
-                'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessiblityLabel` for the `Touchable` Element to make it accessible.',
+                'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessibilityLabel` for the `Touchable` Element to make it accessible.',
             })
             return
           }

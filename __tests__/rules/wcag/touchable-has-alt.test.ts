@@ -9,7 +9,7 @@ import { createTesterOptions } from '../../createTesterOptions'
 const ruleTester = new RuleTester(createTesterOptions())
 
 const ERROR_LABEL =
-  'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessiblityLabel` for the `Touchable` Element to make it accessible.'
+  'The `Touchable` Element must have accessible text. Need to use `accessible` prop and `accessibilityLabel` for the `Touchable` Element to make it accessible.'
 
 const ERROR_IMAGE_BUTTON_ROLE =
   'Does the button contain only `<Image />`? We recommend that add `accessibilityRole = "imagebutton"` to Touchables.'
