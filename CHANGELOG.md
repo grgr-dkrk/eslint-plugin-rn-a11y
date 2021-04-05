@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.7.2...v1.8.0) (2021-04-05)
+
+
+### Features
+
+* **rules:** add-touchable-text-has-role ([1f4396d](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/1f4396d9e53e44080576ca605bfd85851742adff))
+
 ## [1.7.2](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.7.1...v1.7.2) (2021-03-14)
 
 
