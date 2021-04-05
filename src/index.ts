@@ -12,6 +12,7 @@ import {
   noLongAlt,
   noSameLabelAndHint,
   noUseInvertedVirtualizedList,
+  touchableTextHasRole,
 } from './rules'
 
 const PLUGIN_NAME = 'rn-a11y'
@@ -39,6 +40,7 @@ export const rules = {
   'no-long-alt': noLongAlt,
   'no-same-label-and-hint': noSameLabelAndHint,
   'no-use-inverted-virtualizedList': noUseInvertedVirtualizedList,
+  'touchable-text-has-role': touchableTextHasRole,
 }
 
 const basicRules = {
@@ -50,6 +52,7 @@ const basicRules = {
   [`${PLUGIN_NAME}/no-same-label-and-hint`]: 'error',
   [`${PLUGIN_NAME}/image-has-accessible`]: 'warn',
   [`${PLUGIN_NAME}/no-use-inverted-virtualizedList`]: 'warn',
+  [`${PLUGIN_NAME}/touchable-text-has-role`]: 'error',
 }
 
 const androidRules = {}
