@@ -6,6 +6,8 @@ import { JSXElement, JSXOpeningElement } from '../../types'
 export const findChild = (
   node: JSXElement,
   callback: (child: JSXOpeningElement) => boolean,
+  // The recursive option is a change from the original.
+  isRecursive = true,
 ): JSXElement | undefined => {
   const { children } = node
   if (children && children.length > 0) {
@@ -15,9 +17,11 @@ export const findChild = (
           return child.openingElement
         }
       }
-      const foundChild = findChild(child, callback)
-      if (foundChild) {
-        return foundChild
+      if (isRecursive) {
+        const foundChild = findChild(child, callback)
+        if (foundChild) {
+          return foundChild
+        }
       }
     })
   }
