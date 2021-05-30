@@ -11,6 +11,7 @@
 - [rn-a11y/no-same-label-and-hint](./basic/no-same-label-and-hint.md): Prohibit the same sentence for `accessibilityLabel` and `accessibilityHint`.
 - [rn-a11y/image-has-accessible](./basic/image-has-accessible.md): Suggest `<Image />` have both `accessible` and `accessibilityLabel` props.
 - [rn-a11y/no-use-inverted-virtualizedList](./basic/no-use-inverted-virtualizedList.md): Disallow using `inverted` props on VirtualizedList.
+- [rn-a11y/no-role-inside-text](./basic/no-role-inside-text.md): Suggest not to add accessible attributes inside the text component.
 
 ### Android
 
