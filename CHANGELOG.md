@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.8.0...v1.9.0) (2021-05-30)
+
+
+### Features
+
+* **rule:** add no-role-inside-text ([8b92438](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/commit/8b9243833e8044031181d75f22f66ec6489ab2c8))
+
 # [1.8.0](https://github.com/grgr-dkrk/eslint-plugin-rn-a11y/compare/v1.7.2...v1.8.0) (2021-04-05)
 
 
