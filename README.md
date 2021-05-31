@@ -106,3 +106,14 @@ Please see [Contribution Guide](CONTRIBUTING.md).
 ## License
 
 [MIT](LICENSE.md)
+
+1. Currently, some rules are by [eslint-plugin-react-native-a11y](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y). Those licenses belong to them.
+
+- has-accessibility-hints
+- has-valid-accessibility-actions
+- no-nested-touchable
+
+2. The utility function [`findChild`](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/blob/master/src/util/findChild.js) is also a port from this plugin.  
+   There are changes for this plugin, and I have added comments in the relevant places.
+
+3. JSX type definitions are ported from [ast-types-flow](https://github.com/kyldvs/ast-types-flow) to TypeScript.
